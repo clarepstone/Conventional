@@ -1,0 +1,2499 @@
+<?xml version="1.0"?>
+<Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Disc_CF_Model</Name>
+  <Parent>Top Models</Parent>
+  <Previous />
+  <LastModifiedBy>ClareStone</LastModifiedBy>
+  <LastModifiedOn>2023-07-13T14:49:40.1330465+01:00</LastModifiedOn>
+  <CreatedBy>ClareStone</CreatedBy>
+  <CreatedOn>2023-07-13T14:47:21.5115344+01:00</CreatedOn>
+  <Folder>false</Folder>
+  <LastModified>2023-07-13T14:49:40.1330465+01:00</LastModified>
+  <Notes>Calculates present value of all cashflows for conventional business</Notes>
+  <IsExpanded>true</IsExpanded>
+  <Description>Present Value Cashflow Model</Description>
+  <Inherit>false</Inherit>
+  <Declarations />
+  <UseDefaultExecuteCode>false</UseDefaultExecuteCode>
+  <Inputs>
+    <Input>
+      <Name>BenType</Name>
+      <Parent>Benefit</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.513529+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.513529+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.513529+01:00</LastModified>
+      <Notes>Benefit LEVEL or DECR over lifetime of policy (DECR applicable to Product = TERM only)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>LEVEL</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>Benefit</Name>
+      <Parent />
+      <Previous>Premium</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.513529+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.513529+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.513529+01:00</LastModified>
+      <Notes>Inputs related to benefits under policy</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>Death</Name>
+      <Parent>Benefit</Parent>
+      <Previous>BenType</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.513529+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.513529+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.513529+01:00</LastModified>
+      <Notes>Death benefit inputs</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>DthBen</Name>
+      <Parent>Death</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.513529+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.513529+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.513529+01:00</LastModified>
+      <Notes>Death benefit sum assured, ie the amount of life cover provided, at policy commencement</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>100000</Value>
+      <Format>#,###,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>true</AllowNulls>
+    </Input>
+    <Input>
+      <Name>LifeBasis</Name>
+      <Parent>Policy</Parent>
+      <Previous>Term</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.513529+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.513529+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.513529+01:00</LastModified>
+      <Notes>Single life (S), Joint Life First Death (JLF). Joint Life Last Death (JLL)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>S</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>MatValue</Name>
+      <Parent>Maturity</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5145272+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5145272+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5145272+01:00</LastModified>
+      <Notes>Maturity benefit, ie amount paid on survival until end of policy.  This should be the value set at policy commencement, even if policy is now paid up.</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>0</Value>
+      <Format>#,###,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>true</AllowNulls>
+    </Input>
+    <Input>
+      <Name>Maturity</Name>
+      <Parent>Benefit</Parent>
+      <Previous>Death</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5145272+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5145272+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5145272+01:00</LastModified>
+      <Notes>Maturity benefit inputs</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>PUPDate</Name>
+      <Parent>Policy</Parent>
+      <Previous>LifeBasis</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5145272+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5145272+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5145272+01:00</LastModified>
+      <Notes>Date when policy was made paid up (blank if not applicable)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Date</DataType>
+      <Value>01/01/1900</Value>
+      <Format>dd/MM/yyyy</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>true</AllowNulls>
+    </Input>
+    <Input>
+      <Name>Policy</Name>
+      <Parent />
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5145272+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5145272+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5145272+01:00</LastModified>
+      <Notes>Inputs specific to policy</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>PremAnn</Name>
+      <Parent>Premium</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5145272+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5145272+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5145272+01:00</LastModified>
+      <Notes>Annual premium amount.  For single premiums this is the single premium, for all other premium frequencies this is the annual premium.</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>500</Value>
+      <Format>##,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>true</AllowNulls>
+    </Input>
+    <Input>
+      <Name>PremFreq</Name>
+      <Parent>Premium</Parent>
+      <Previous>PremAnn</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5145272+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5145272+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5145272+01:00</LastModified>
+      <Notes>Number of premiums paid each year, 0=single premium, 1=annual, 2=half-yearly, 3=termly, 4=quarterly, 12=monthly</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>0</Value>
+      <Format>#0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>PremTerm</Name>
+      <Parent>Premium</Parent>
+      <Previous>PremFreq</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5155239+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5155239+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5155239+01:00</LastModified>
+      <Notes>Premium payment term in years.  (0 for single premiums, if premiums paid for whole term then set equal to Term, otherwise set to number of years premiums will be paid for).</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>0</Value>
+      <Format>##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>true</AllowNulls>
+    </Input>
+    <Input>
+      <Name>Premium</Name>
+      <Parent />
+      <Previous>Policy</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5155239+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5155239+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5155239+01:00</LastModified>
+      <Notes>Premium related inputs</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>Product</Name>
+      <Parent>Policy</Parent>
+      <Previous>UniqueID</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5155239+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5155239+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5155239+01:00</LastModified>
+      <Notes>Product Type: Term insurance (TERM), Whole of life assurance (WOL), Pure Endowment (PURE_ENDOW), Endowment (ENDOW)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>TERM</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>StartDate</Name>
+      <Parent>Policy</Parent>
+      <Previous>Product</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5155239+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5155239+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5155239+01:00</LastModified>
+      <Notes>Date of policy commencement</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Date</DataType>
+      <Value>01/01/1900</Value>
+      <Format>dd/MM/yyyy</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>Term</Name>
+      <Parent>Policy</Parent>
+      <Previous>StartDate</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5155239+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5155239+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5155239+01:00</LastModified>
+      <Notes>Term of policy (from commencement) in years (blank for WOL Product)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>20</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>true</AllowNulls>
+    </Input>
+    <Input>
+      <Name>UniqueID</Name>
+      <Parent>Policy</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:49:40.1330465+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5155239+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:49:40.1330465+01:00</LastModified>
+      <Notes>Model point identifier</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>ABC12345</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+  </Inputs>
+  <Params>
+    <Parameter>
+      <Name>Basis</Name>
+      <Parent />
+      <Previous>Decrements</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.516522+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.516522+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.516522+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>Ben_on_Dth</Name>
+      <Parent>Benefit</Parent>
+      <Previous>ProdBens_tbl</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.516522+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.516522+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.516522+01:00</LastModified>
+      <Notes>Product pays out on death (Y/N)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>N</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source>ProdBens_tbl</Source>
+    </Parameter>
+    <Parameter>
+      <Name>Ben_on_Mat</Name>
+      <Parent>Benefit</Parent>
+      <Previous>Ben_on_Surr</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.516522+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.516522+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.516522+01:00</LastModified>
+      <Notes>Product pays out on survival to maturity (Y/N)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>N</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source>ProdBens_tbl</Source>
+    </Parameter>
+    <Parameter>
+      <Name>Ben_on_PUP</Name>
+      <Parent>Benefit</Parent>
+      <Previous>Ben_on_Mat</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5175183+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5175183+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5175183+01:00</LastModified>
+      <Notes>Can the benefits under the policy become paid up (Y/N)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>N</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source>ProdBens_tbl</Source>
+    </Parameter>
+    <Parameter>
+      <Name>Ben_on_Surr</Name>
+      <Parent>Benefit</Parent>
+      <Previous>Ben_on_Dth</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5175183+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5175183+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5175183+01:00</LastModified>
+      <Notes>Product pays out on surrender (Y/N)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>N</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source>ProdBens_tbl</Source>
+    </Parameter>
+    <Parameter>
+      <Name>Benefit</Name>
+      <Parent />
+      <Previous>GoalSeekResult_w</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5175183+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5175183+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5175183+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>CalcBasis_w</Name>
+      <Parent>Basis</Parent>
+      <Previous>CalcType</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5175183+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5175183+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5175183+01:00</LastModified>
+      <Notes>Set within code to Reserve or Pricing</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>Reserve</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>CalcType</Name>
+      <Parent>Basis</Parent>
+      <Previous>PremTerm_w</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5175183+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5175183+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5175183+01:00</LastModified>
+      <Notes>Reserve, BenLed, PremLed</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>BenLed</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>Charges</Name>
+      <Parent />
+      <Previous>Benefit</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5175183+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5175183+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5175183+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>DecrSA_Int</Name>
+      <Parent>Benefit</Parent>
+      <Previous>Ben_on_PUP</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5175183+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5175183+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5175183+01:00</LastModified>
+      <Notes>Interest rate used to calculate the decreasing sum assured on DECR policies</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>.1</Value>
+      <Format>#0.00%</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>DecrSA_MrtgPmt_w</Name>
+      <Parent>Benefit</Parent>
+      <Previous>DecrSA_Int</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5185155+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5185155+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5185155+01:00</LastModified>
+      <Notes>Monthly payment required to pay off mortgage amount equal to the sum assured at outset, assuming fixed interest rate of DecrSA_Int</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>0</Value>
+      <Format>##,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>Decrements</Name>
+      <Parent />
+      <Previous>Expenses</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5185155+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5185155+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5185155+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>ExpBasis_tbl</Name>
+      <Parent>Expenses</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5185155+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5185155+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5185155+01:00</LastModified>
+      <Notes>Expense basis table, varies by Product and CalcBasis_w (Reserve or Pricing)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>TableDbl</DataType>
+      <Value>TBL_ExpBasis</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>ExpClaim</Name>
+      <Parent>Expenses</Parent>
+      <Previous>ExpRen</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5185155+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5185155+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5185155+01:00</LastModified>
+      <Notes>Claims Expenses - applied at time of claim (which is assumed to happen at the end of the month in which claim occurs)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>300</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source>ExpBasis_tbl</Source>
+    </Parameter>
+    <Parameter>
+      <Name>ExpInfl</Name>
+      <Parent>Expenses</Parent>
+      <Previous>ExpClaim</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5185155+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5185155+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5185155+01:00</LastModified>
+      <Notes>Expense Inflation - applied annually from the valuation date to all expenses</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>.015</Value>
+      <Format>#0.00%</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source>ExpBasis_tbl</Source>
+    </Parameter>
+    <Parameter>
+      <Name>ExpInit</Name>
+      <Parent>Expenses</Parent>
+      <Previous>ExpBasis_tbl</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5185155+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5185155+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5185155+01:00</LastModified>
+      <Notes>Initial Expenses - applied at the beginning of the first policy month</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>150</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source>ExpBasis_tbl</Source>
+    </Parameter>
+    <Parameter>
+      <Name>ExpRen</Name>
+      <Parent>Expenses</Parent>
+      <Previous>ExpInit</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5185155+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5185155+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5185155+01:00</LastModified>
+      <Notes>Renewal Expenses - applied at the end of each policy year</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>20</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source>ExpBasis_tbl</Source>
+    </Parameter>
+    <Parameter>
+      <Name>Expenses</Name>
+      <Parent />
+      <Previous>Charges</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5195128+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5195128+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5195128+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>GoalSeekResult_w</Name>
+      <Parent />
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5195128+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5195128+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5195128+01:00</LastModified>
+      <Notes>Used in PremLed and BenLed calculations</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>1</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>Mortality</Name>
+      <Parent>Decrements</Parent>
+      <Previous>PUPs</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5195128+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5195128+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5195128+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>PUPRate</Name>
+      <Parent>PUPs</Parent>
+      <Previous>PUPRate_tbl</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5195128+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5195128+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5195128+01:00</LastModified>
+      <Notes>Annual pup rate appropriate to policy</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>0</Value>
+      <Format>#0.00%</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source>PUPRate_tbl</Source>
+    </Parameter>
+    <Parameter>
+      <Name>PUPRate_tbl</Name>
+      <Parent>PUPs</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5195128+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5195128+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5195128+01:00</LastModified>
+      <Notes>Table showing annual rate at which plans become paid up, varies by Product</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>TableDbl</DataType>
+      <Value>TBL_PUPRate</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>PUPs</Name>
+      <Parent>Decrements</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5195128+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5195128+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5195128+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>Persistency</Name>
+      <Parent>Decrements</Parent>
+      <Previous>Mortality</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5195128+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5195128+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5195128+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>PersistencyBasis_tbl</Name>
+      <Parent>Persistency</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5205099+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5205099+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5205099+01:00</LastModified>
+      <Notes>Table used to determine appropriate lapse basis dependent on risk factors specific to each policy</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>TableStr</DataType>
+      <Value>TBL_PersistencyBasis</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>PersistencyMaxRows_w</Name>
+      <Parent>Persistency</Parent>
+      <Previous>PersistencyTbl_w</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5205099+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5205099+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5205099+01:00</LastModified>
+      <Notes>Final row in lapse table, used when looking up lapse rates after end of table (where final rate is assumed to apply indefinitely)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>1</Value>
+      <Format>##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>PersistencyTbl_w</Name>
+      <Parent>Persistency</Parent>
+      <Previous>PersistencyBasis_tbl</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5205099+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5205099+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5205099+01:00</LastModified>
+      <Notes>Lapse table applicable to policy</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>TableDbl</DataType>
+      <Value />
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>PremTerm_w</Name>
+      <Parent>Basis</Parent>
+      <Previous>Term_w</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5205099+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5205099+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5205099+01:00</LastModified>
+      <Notes>Premium paying term (in months) calculated in code for WOL plans and set to Input PremTerm * 12 otherwise</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>0</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>ProdBens_tbl</Name>
+      <Parent>Benefit</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5205099+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5205099+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5205099+01:00</LastModified>
+      <Notes>Table showing the benefits available on each Product</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>TableStr</DataType>
+      <Value>TBL_ProdBenefits</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>SM_Mortality_Life1</Name>
+      <Parent>Mortality</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5205099+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5205099+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5205099+01:00</LastModified>
+      <Notes>Mortality submodel used to calculate mortality for life 1</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Model</DataType>
+      <Value>Mortality</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>SM_Mortality_Life2</Name>
+      <Parent>Mortality</Parent>
+      <Previous>SM_Mortality_Life1</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5215096+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5215096+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5215096+01:00</LastModified>
+      <Notes>Mortality submodel used to calculate mortality for life 2</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Model</DataType>
+      <Value>Mortality</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>SurrCharge_Tbl</Name>
+      <Parent>Charges</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5215096+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5215096+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5215096+01:00</LastModified>
+      <Notes>Surrender charge table, varies by PolYear and Product</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>TableDbl</DataType>
+      <Value>TBL_SurrCharge</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>SurrChgeMaxRows_w</Name>
+      <Parent>Charges</Parent>
+      <Previous>SurrCharge_Tbl</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5215096+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5215096+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5215096+01:00</LastModified>
+      <Notes>Last row in surrender charge table</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>0</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>Term_w</Name>
+      <Parent>Basis</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5215096+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5215096+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5215096+01:00</LastModified>
+      <Notes>Term of policy (in months) calculated in code for WOL product.  For other products set to Input Term * 12 but restricted in code to the month in which the appropriate lives die.</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>1</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>ValDate</Name>
+      <Parent>Basis</Parent>
+      <Previous>CalcBasis_w</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5215096+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5215096+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5215096+01:00</LastModified>
+      <Notes>Valuation date</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Date</DataType>
+      <Value>01/01/2000</Value>
+      <Format>dd/MM/yyyy</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>ValIntMaxRows_w</Name>
+      <Parent>Basis</Parent>
+      <Previous>Val_Int_tbl</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5225051+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5225051+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5225051+01:00</LastModified>
+      <Notes>Last row for which there are values in the valuation interest rate table</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>0</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>Val_Int_tbl</Name>
+      <Parent>Basis</Parent>
+      <Previous>ValDate</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5225051+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5225051+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5225051+01:00</LastModified>
+      <Notes>Valuation interest rate table used to discount cashflows (lookup based on year of projection) </Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>TableDbl</DataType>
+      <Value>TBL_Val_IntRate</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+  </Params>
+  <Formulae>
+    <Formula>
+      <Name>Benefit</Name>
+      <Parent />
+      <Previous>Decrements</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5225051+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5225051+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5225051+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>BothAlive_b</Name>
+      <Parent>Mortality</Parent>
+      <Previous>Life2Alive_b</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5235033+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5235033+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5235033+01:00</LastModified>
+      <Notes>Proportion of joint life policies where both lives are still alive at the start of the month</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Probability both lives are alive at the start of month t
+    ' used in joint life last death calculations and in calculation of survival benefits
+
+'Not Required for single life policies
+If LifeBasis = "S" Then Return 0
+
+Return Life1Alive_b(t) * Life2Alive_b(t)</Value>
+      <Format>0.000000</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Death</Name>
+      <Parent>Benefit</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5235033+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5235033+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5235033+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>DeathRate</Name>
+      <Parent>Mortality</Parent>
+      <Previous>BothAlive_b</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5235033+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5235033+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5235033+01:00</LastModified>
+      <Notes>Proportion of policies that were in force at the valuation date that claim through death in month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Probability of policy claiming as a result of death(s) in month t
+
+'Single life policies
+If LifeBasis = "S" Then Return MortRate1(t)    
+
+'Joint life policies  
+If LifeBasis = "JLF" Then 'claim when either life dies
+    Return MortRate1(t) + MortRate2(t) - MortRate1(t) * MortRate2(t)
+Else
+    'Joint Life Last death - claim when both lives die 
+        '(= prob both die in month t + prob life 1 dies in month t (life 2 died before month t) + prob life 2 dies in month t (life 1 died before month t)
+    Return ((BothAlive_b(t) * MortRate1(t) * MortRate2(t)) _
+                + (Life1Alive_b(t) * (1 - Life2Alive_b(t)) * MortRate1(t)) _
+                    + (Life2Alive_b(t) * (1 - Life1Alive_b(t)) * MortRate2(t)) ) _
+                        / (Life1Alive_b(t) + Life2Alive_b(t) - Life1Alive_b(t) * Life2Alive_b(t))  
+End If</Value>
+      <Format>0.000000</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Decrements</Name>
+      <Parent />
+      <Previous>Premium</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5235033+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5235033+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5235033+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>DiscFac_mnth</Name>
+      <Parent>Valuation</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5235033+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5235033+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5235033+01:00</LastModified>
+      <Notes>Monthly discount factor appropriate during month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Assume no discounting applies before valuation date
+If t &lt;= PeriodIF() Then Return 1
+
+'Lookup annual interest rate (use last rate for period &gt; end of table) and calculate monthly discount factor
+Return 1 / ((1 + Val_Int_tbl.Value(Min(ValYr(t), ValIntMaxRows_w), Product &amp; "_" &amp; CalcBasis_w) ) ^ (1 / 12))</Value>
+      <Format>0.000000</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>DthBen_PP_IF_e</Name>
+      <Parent>Death</Parent>
+      <Previous>DthBen_PP_PU</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5235033+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5235033+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5235033+01:00</LastModified>
+      <Notes>Death benefit paid to premium paying policies claiming in month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'No death benefits on policy or before policy commencement
+If Ben_on_Dth = "N" Or t &lt;= 0 Then Return 0
+
+'Death benefit paid to premium paying policies claiming in month t
+Return PropIF_e(t - 1) * DeathRate(t) * (1 - PropPUP_e(t - 1)) * DthBen_PP_PU(t)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>DthBen_PP_PU</Name>
+      <Parent>Death</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5245001+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5245001+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5245001+01:00</LastModified>
+      <Notes>Death benefit per unit in month t for premium paying policies</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'No death benefits on policy or before policy commencement
+If Ben_on_Dth = "N" Or t &lt;= 0 Then Return 0
+
+'LEVEL policies - Sum assured is set at outset an remains constant throughout
+    If BenType = "LEVEL" Then 
+        If CalcType = "PremLed" Then Return GoalSeekResult_w
+        Return DthBen
+    End If
+
+'DECR policies
+    'For Premium Led projections re-calculate typical mortgage payment assuming fixed interest Of DecrSA_Int
+    If CalcType = "PremLed" Then DecrSA_MrtgPmt_w = Financial.Pmt((1 + DecrSA_Int) ^ (1 / 12) - 1, Term * 12, GoalSeekResult_w)
+
+    'Assume the Sum assured is equal to capital outstanding on a mortgage at end of month t where the mortgage has a fixed interest rate of DecrSA_Int
+    Return Financial.PV((1 + DecrSA_Int) ^ (1 / 12) - 1, Term * 12 - (t - 1), DecrSA_MrtgPmt_w)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>DthBen_PUP_IF_e</Name>
+      <Parent>Death</Parent>
+      <Previous>DthBen_PUP_PU</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5245001+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5245001+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5245001+01:00</LastModified>
+      <Notes>Death benefit paid to paid up policies claiming in month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Before policy commencement, no death benefits or PUP option on product or single premium policy
+If t &lt;= 0 Or Ben_on_Dth = "N" Or Ben_on_PUP = "N" Or PremFreq = 0  Then Return 0
+
+Return PropIF_e(t - 1) * DeathRate(t) * DthBen_PUP_PU(t)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>DthBen_PUP_PU</Name>
+      <Parent>Death</Parent>
+      <Previous>DthBen_PUPinMth</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5245001+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5245001+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5245001+01:00</LastModified>
+      <Notes>Death benefit per unit in month t for paid up plans</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Before policy commencement, no death benefits or PUP option on product or single premium policy
+If t &lt;= 0 Or Ben_on_Dth = "N" Or Ben_on_PUP = "N" Or PremFreq = 0  Then Return 0
+
+Return DthBen_PUP_PU(t - 1) + PropPUPinMth(t - 1) * DthBen_PUPinMth(t - 1)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>DthBen_PUPinMth</Name>
+      <Parent>Death</Parent>
+      <Previous>DthBen_PP_IF_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5245001+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5245001+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5245001+01:00</LastModified>
+      <Notes>Death benefit per unit for policies that are made paid up in month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Before policy commencement, no death benefits or PUP option on product or single premium policy
+If t &lt;= 0 Or Ben_on_Dth = "N" Or Ben_on_PUP = "N" Or PremFreq = 0  Then Return 0
+
+'Death benefit sum assured reduced depending on no. of premiums due and no. of premiums paid
+Return DthBen_PP_PU(t) * Ceiling(Min(t, PremTerm_w) / (12 / PremFreq)) / (PremTerm_w / (12 / PremFreq) )</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>DthBen_PV_e</Name>
+      <Parent>Valuation</Parent>
+      <Previous>Prem_PV_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5245001+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5245001+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5245001+01:00</LastModified>
+      <Notes>Present value (at end of month t) of all death claims paid from month t+1 onwards</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Present Value at the end of month t of all death claims paid from month t+1 onwards
+
+If t = ProjTerm() Then Return 0
+
+Return (DthBen_PV_e(t + 1) + DthBen_TOT_IF_e(t + 1) ) * DiscFac_mnth(t + 1)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>DthBen_TOT_IF_e</Name>
+      <Parent>Death</Parent>
+      <Previous>DthBen_PUP_IF_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5245001+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5245001+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5245001+01:00</LastModified>
+      <Notes>Total death benefit claims paid at the end of month t on both premium paying and paid up policies</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Before policy commencement or no death benefit on product
+If t &lt;= 0 Or Ben_on_Dth = "N" Then Return 0
+
+'Total Expected death claims from premium paying and paid up policies at the end of month t
+Return DthBen_PP_IF_e(t) + DthBen_PUP_IF_e(t) </Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Execute</Name>
+      <Parent />
+      <Previous>InitRecord</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5245001+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5245001+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5245001+01:00</LastModified>
+      <Notes>Determines which functions will be calculated</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType />
+      <Value>If CalcBasis_w = "Reserve" Then Record.CalcFns()
+
+'Reset GoalSeekResult_w
+GoalSeekResult_w = 1
+
+If CalcBasis_w = "Pricing" Then Record.GoalSeek(GoalSeekResult_w, 0, AddressOf GoalseekTarget_w, 0.00000001)</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>ExpClaim_IF_e</Name>
+      <Parent>Expenses</Parent>
+      <Previous>ExpClaim_PU</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.525497+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.525497+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.525497+01:00</LastModified>
+      <Notes>Claims expenses from policies that claim in month t, paid at the end of month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Claim expenses for policies claiming through death, surrender or maturity in month t
+ If t &lt;= 0 Then Return 0
+ 
+ Dim ClaimRate As Double = 0
+ 
+ If Ben_on_Dth = "Y" Then ClaimRate = PropIF_e(t - 1) * DeathRate(t)
+ 
+ If Ben_on_Surr = "Y" Then ClaimRate = ClaimRate + (PropIF_e(t - 1) * (1 - DeathRate(t)) * SurrRate(t))
+ 
+ If Ben_on_Mat = "Y" And t = ProjTerm() Then ClaimRate = ClaimRate + PropIF_e(t)
+ 
+ Return ExpClaim_PU(t) * ClaimRate </Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>ExpClaim_PU</Name>
+      <Parent>Expenses</Parent>
+      <Previous>ExpRen_IF_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.525497+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.525497+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.525497+01:00</LastModified>
+      <Notes>Per unit claim expenses at the end of month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'No claims before policy commencement
+If t &lt;= 0 Then Return 0
+
+'Expense assumptions apply at valuation date, inflation applied annually from then (both prior to and after valuation date)
+ Return ExpClaim * (1 + ExpInfl) ^ (Floor(ValMnth(t) / 12))</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>ExpInit_b</Name>
+      <Parent>Expenses</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.525497+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.525497+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.525497+01:00</LastModified>
+      <Notes>Initial expenses incurred at the beginning of the first policy month</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Initial expenses only paid at the start of the first policy month
+If t = 1 Then
+    'Expense assumptions apply at valuation date, inflation applied annually from then
+    Return ExpInit * (1 + ExpInfl) ^ (Floor(ValMnth(t) / 12))
+Else
+    Return 0
+End If</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>ExpRen_IF_e</Name>
+      <Parent>Expenses</Parent>
+      <Previous>ExpRen_PU</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.525497+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.525497+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.525497+01:00</LastModified>
+      <Notes>Renewal expenses from those policies still in force at the end of each policy year</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Renewal expense from policies still in force at time t
+If t &lt;= 0 Then Return 0
+
+Return ExpRen_PU(t) * PropIF_e(t)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>ExpRen_PU</Name>
+      <Parent>Expenses</Parent>
+      <Previous>ExpInit_b</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.525497+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.525497+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.525497+01:00</LastModified>
+      <Notes>Per unit renewal expense at the end of each policy year</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Renewal expenses assumed to occur annually from policy commencement date, but no renewal expense in last policy month
+If t &lt;= 0 Or t Mod 12 &lt;&gt; 0 Or t = ProjTerm() Then Return 0
+
+'Expense assumptions apply at valuation date, inflation applied annually from then
+Return ExpRen * (1 + ExpInfl) ^ (Floor(ValMnth(t) / 12))</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Expenses</Name>
+      <Parent />
+      <Previous>Benefit</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.525497+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.525497+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.525497+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>GoalseekTarget_w</Name>
+      <Parent />
+      <Previous>Execute</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5264949+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5264949+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5264949+01:00</LastModified>
+      <Notes>Target column used to goalseek for required premium/benefit for given benefit/premium</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Only required for Pricing projections
+If CalcBasis_w = "Reserve" Then Return 0
+
+Return Res_e(0)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>InitRecord</Name>
+      <Parent />
+      <Previous>Initialise</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5264949+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5264949+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5264949+01:00</LastModified>
+      <Notes>Set up any variables that only need calculated once for each policy</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType />
+      <Value>'Don't call life 2 mortality submodel for single life policies
+If LifeBasis = "S" Then SM_Mortality_Life2.Skip = True
+
+'Set Term_w (term of policy in months)
+    'Call Mortality submodel InitRecord to get max possible term (MaxTerm_w)
+    SM_Mortality_Life1.InitRecord
+    If LifeBasis &lt;&gt; "S" Then SM_Mortality_Life2.InitRecord
+
+    'Set Term_w to MaxTerm_w for WOL Product       
+    If Product = "WOL" Then
+        If LifeBasis = "S" Then
+            Term_w = SM_Mortality_Life1.MaxTerm_w      
+        Else
+            If LifeBasis = "JLF" Then Term_w = Min(SM_Mortality_Life1.MaxTerm_w, SM_Mortality_Life2.MaxTerm_w)           
+            If LifeBasis = "JLL" Then Term_w = Max(SM_Mortality_Life1.MaxTerm_w, SM_Mortality_Life2.MaxTerm_w) 
+        End If
+    
+    Else 'Not WOL
+        If LifeBasis = "S" Then
+            Term_w = Min(CInt(Term * 12), SM_Mortality_Life1.MaxTerm_w)      
+        Else
+            If LifeBasis = "JLF" Then Term_w = Min(CInt(Term * 12), _
+                                                Min(SM_Mortality_Life1.MaxTerm_w, SM_Mortality_Life2.MaxTerm_w)  )         
+            If LifeBasis = "JLL" Then Term_w = Min(CInt(Term * 12), _
+                                                Max(SM_Mortality_Life1.MaxTerm_w, SM_Mortality_Life2.MaxTerm_w) )
+        End If
+    End If
+  
+    'Check is premiums paid for restricted term, if not then set PremTerm_w to Term_w
+    If PremTerm &gt; 0 Then
+        PremTerm_w = Min(CInt(PremTerm * 12), Term_w)
+    Else
+        PremTerm_w = Term_w
+    End If    
+ 
+'Set Lapse Basis
+    Dim lookup As String 
+    Dim Tablename As String
+
+    'Set Appropriate Lapse Table 
+    'Regular Or Single Premium?
+    Dim PremType As String
+    If PremFreq = 0 Then PremType = "S" Else PremType = "R"
+
+    'Is Premium paying term less than Term of policy?
+    Dim PremTermRed As String
+    If PremFreq &gt; 0 And PremTerm_w &lt; Term_w Then PremTermRed = "Y" Else PremTermRed = "N"
+
+    'Lookup LapseBasis
+    lookup = Table.GetLookUp(Product, CalcBasis_w, PremType, PremTermRed, BenType)
+    Tablename = PersistencyBasis_tbl.Value(lookup)
+    PersistencyTbl_w = Project.TableDbl(Tablename)
+    PersistencyMaxRows_w = PersistencyTbl_w.Rows
+
+'For Decreasing policies calculate typical mortgage payment assuming fixed interest Of DecrSA_Int
+    If BenType = "DECR" Then DecrSA_MrtgPmt_w = Financial.Pmt((1 + DecrSA_Int) ^ (1 / 12) - 1, Term * 12, DthBen)</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Initialise</Name>
+      <Parent />
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5264949+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5264949+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5264949+01:00</LastModified>
+      <Notes>Set up projection specific variables - function calculated once per projection</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType />
+      <Value>'Set Calculation basis to Reserve or Pricing
+If CalcType = "Reserve" Then 
+    CalcBasis_w = "Reserve"
+Else 
+    CalcBasis_w = "Pricing"
+End If
+
+'Set last row of surrender charge table
+SurrChgeMaxRows_w = SurrCharge_Tbl.Rows
+
+'Set last row of valuation interest rate table
+ValIntMaxRows_w = Val_Int_tbl.Rows</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Life1Alive_b</Name>
+      <Parent>Mortality</Parent>
+      <Previous>MortRate2</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5264949+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5264949+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5264949+01:00</LastModified>
+      <Notes>Proportion of policies where life 1 is still alive at the start of the month</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Probability life 1 still alive at the start of month t
+    ' used in joint life last death calculations and in calculation of survival benefits
+
+Return SM_Mortality_Life1.LifeAlive_b(t)</Value>
+      <Format>0.000000</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Life2Alive_b</Name>
+      <Parent>Mortality</Parent>
+      <Previous>Life1Alive_b</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5264949+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5264949+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5264949+01:00</LastModified>
+      <Notes>Proportion of joint life policies where life 2 is still alive at the start of the month</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Probability life 2 still alive at the start of month t
+    ' used in joint life last death calculations and in calculation of survival benefits
+
+'Not Required for single life policies
+If LifeBasis = "S" Then Return 0
+
+Return SM_Mortality_Life2.LifeAlive_b(t)</Value>
+      <Format>0.000000</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>MatBen_IF_e</Name>
+      <Parent>Maturity</Parent>
+      <Previous>MatBen_PUP_IF_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5264949+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5264949+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5264949+01:00</LastModified>
+      <Notes>Total maturity benefit paid at the end of month t on both premium paying and paid up policies</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Before maturity or no maturity benefit on product
+If t &lt; ProjTerm() Or Ben_on_Mat = "N" Then Return 0
+
+Return MatBen_PP_IF_e(t) + MatBen_PUP_IF_e(t)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>MatBen_PP_IF_e</Name>
+      <Parent>Maturity</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5264949+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5264949+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5264949+01:00</LastModified>
+      <Notes>Maturity benefit paid to premium paying policies maturing in month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Before maturity or no maturity benefits on product
+If t &lt; ProjTerm() Or Ben_on_Mat = "N" Then Return 0
+
+'For premium led projections, set maturity value to be the goalseek value
+If CalcType = "PremLed" Then
+    Return PropIF_e(t) * (1 - PropPUP_e(t - 1)) * GoalSeekResult_w 
+Else
+    Return PropIF_e(t) * (1 - PropPUP_e(t - 1)) * MatValue
+End If</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>MatBen_PUP_IF_e</Name>
+      <Parent>Maturity</Parent>
+      <Previous>MatBen_PUPinMth</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5274915+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5274915+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5274915+01:00</LastModified>
+      <Notes>Maturity benefit paid to paid up plans maturing in month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Before maturity, no maturity benefits or PUP option on product or single premium policy
+If t &lt; ProjTerm() Or Ben_on_Mat = "N" Or Ben_on_PUP = "N" Or PremFreq = 0 Then Return 0
+
+Dim i As Integer
+Dim MatBenPUP As Double = 0
+
+'Loop through for plans that were made paid up in each month t (no PUPs assumed at t = ProjTerm)
+For i = 1 To t - 1
+    MatBenPUP = MatBenPUP + PropPUPinMth(i) * MatBen_PUPinMth(i)
+Next
+
+Return MatBenPUP * PropIF_e(t)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>MatBen_PUPinMth</Name>
+      <Parent>Maturity</Parent>
+      <Previous>MatBen_PP_IF_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5274915+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5274915+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5274915+01:00</LastModified>
+      <Notes>Maturity benefit for plans that are made paid up in month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Before policy commencement, no maturity benefits or PUP option on product or single premium policy
+If t &lt;= 0 Or Ben_on_Mat = "N" Or Ben_on_PUP = "N" Or PremFreq = 0  Then Return 0
+
+'For premium led projections, set maturity value to be the goalseek value
+If CalcType = "PremLed" Then
+    Return GoalSeekResult_w * Ceiling(Min(t, PremTerm_w) / (12 / PremFreq)) _
+                / (PremTerm_w / (12 / PremFreq) )
+Else
+    'Else use MatValue Input
+    Return MatValue * Ceiling(Min(t, PremTerm_w) / (12 / PremFreq)) _
+                / (PremTerm_w / (12 / PremFreq) )
+End If</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Maturity</Name>
+      <Parent>Benefit</Parent>
+      <Previous>Surrender</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5274915+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5274915+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5274915+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Maturity_PV_e</Name>
+      <Parent>Valuation</Parent>
+      <Previous>Surr_PV_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5274915+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5274915+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5274915+01:00</LastModified>
+      <Notes>Present value (at end of month t) of all maturity claims paid from month t+1 onwards</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Present Value at the end of month t of all maturity benefits paid from month t+1 onwards
+
+If t = ProjTerm() Then Return 0
+
+Return (MatBen_IF_e(t + 1) + Maturity_PV_e(t + 1)) * DiscFac_mnth(t + 1)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>MortRate1</Name>
+      <Parent>Mortality</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5274915+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5274915+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5274915+01:00</LastModified>
+      <Notes>Probability of life 1 dying during month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Assume zero mortality until the later of valuation date and policy commencement date
+If t &lt;= Max(PeriodIF(), 0) Then Return 0
+
+Return SM_Mortality_Life1.MortRate(t)</Value>
+      <Format>0.000000</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>MortRate2</Name>
+      <Parent>Mortality</Parent>
+      <Previous>MortRate1</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5274915+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5274915+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5274915+01:00</LastModified>
+      <Notes>Probability of life 2 dying during month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Only required for joint life policies, assume zero mortality until the later of valuation date and policy commencement date
+If LifeBasis = "S" Or t &lt;= Max(PeriodIF(), 0) Then Return 0
+
+Return SM_Mortality_Life2.MortRate(t)</Value>
+      <Format>0.000000</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Mortality</Name>
+      <Parent>Decrements</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5274915+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5274915+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5274915+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>PUP_mnth</Name>
+      <Parent>Policy</Parent>
+      <Previous>PeriodIF</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5284888+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5284888+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5284888+01:00</LastModified>
+      <Notes>Policy month in which policy is made paid up </Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Number of months from outset to PUP date - used for policies that have been made paid up prior to the valuation date
+Return DateSpan.TermInMonths(StartDate, PUPDate) + 1</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>PeriodIF</Name>
+      <Parent>Policy</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5284888+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5284888+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5284888+01:00</LastModified>
+      <Notes>Complete months from policy commencement date to valuation date</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>'Number of complete months from policy commencement to valuation date
+Return DateSpan.TermInMonths(StartDate, ValDate)</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Persistency</Name>
+      <Parent>Decrements</Parent>
+      <Previous>Mortality</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5284888+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5284888+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5284888+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Pol_Year</Name>
+      <Parent>Policy</Parent>
+      <Previous>PUP_mnth</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5284888+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5284888+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5284888+01:00</LastModified>
+      <Notes>Policy year</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>'Policy year, ie first 12 months from policy commencement = Pol_Year 1, next 12 months = Pol_Year 2
+Return CInt(Fix((t + 11) / 12))</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Policy</Name>
+      <Parent />
+      <Previous>Projection</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5284888+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5284888+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5284888+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Prem_PP_IF_b</Name>
+      <Parent>Premium</Parent>
+      <Previous>Prem_PU</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5284888+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5284888+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5284888+01:00</LastModified>
+      <Notes>Premium received after allowing for claims/lapses/PUPs.  Premiums assumed to be paid at start of month t.</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'No premiums before policy commencement
+If t &lt;= 0 Then Return 0 
+
+'Premiums from policies still in force AND not paid up at the end of the previous period
+Return Prem_PU(t) * PropIF_e(t - 1) * (1 - PropPUP_e(t - 1))</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Prem_PU</Name>
+      <Parent>Premium</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5284888+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5284888+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5284888+01:00</LastModified>
+      <Notes>Premium per unit due in month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Premium due at the start of month t (assuming policy still In force)
+
+'SINGLE PREMIUMS
+If PremFreq = 0 And t = 1 Then
+    If CalcType = "BenLed" Then Return GoalSeekResult_w
+    Return PremAnn
+End If
+
+'REGULAR PREMIUMS
+'Return zero before policy commences OR after the premium paying term OR where no premium due in month t
+If t &lt;= 0 Or t &gt; PremTerm_w Or (t - 1)Mod(12 / PremFreq) &lt;&gt; 0   Then Return 0
+
+'Premium due this month
+If CalcType = "BenLed" Then Return GoalSeekResult_w / PremFreq
+Return PremAnn / PremFreq</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Prem_PV_e</Name>
+      <Parent>Valuation</Parent>
+      <Previous>DiscFac_mnth</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5294862+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5294862+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5294862+01:00</LastModified>
+      <Notes>Present value (at end of month t) for all premiums paid from month t+1 onwards</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Present Value at the end of month t of all premiums paid from month t+1 onwards
+
+If t = ProjTerm() Then Return 0
+
+Return Prem_PV_e(t + 1) * DiscFac_mnth(t + 1) + Prem_PP_IF_b(t + 1)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Premium</Name>
+      <Parent />
+      <Previous>Policy</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5294862+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5294862+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5294862+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>ProjTerm</Name>
+      <Parent>Policy</Parent>
+      <Previous>Pol_Year</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5294862+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5294862+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5294862+01:00</LastModified>
+      <Notes>Term of projection in months from policy commencement</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>'Projection term from outset (in months)
+'For WOL this is calculated as the time until the appropriate lives reach the max age in the mortality table
+'For other products this is set to the minimum of the Input variable Term * 12 and the max age in mortality table
+Return Term_w</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Projection</Name>
+      <Parent />
+      <Previous>GoalseekTarget_w</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5294862+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5294862+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5294862+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>PropIF_e</Name>
+      <Parent>Policy</Parent>
+      <Previous>ProjTerm</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5294862+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5294862+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5294862+01:00</LastModified>
+      <Notes>Proportion of policies still in force at the end of month t (after all claims and lapses)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Proportion still in force at the end of month t
+'Assume policy is still in force at later of policy commencement and valuation date
+If t &lt;= Max(0, PeriodIF()) Then Return 1
+
+Return PropIF_e(t - 1) * (1 - DeathRate(t) ) * (1 - SurrRate(t))</Value>
+      <Format>0.000000</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>PropPUP_e</Name>
+      <Parent>Policy</Parent>
+      <Previous>PropIF_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5294862+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5294862+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5294862+01:00</LastModified>
+      <Notes>Proportion of in force polices that are paid up at the end of month t (after all claims and lapses)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Proportion of in force policies that are paid up at time t
+'All policies are premium paying at outset and single premium policies can't be made paid up (as all benefits paid for in advance)
+If t &lt;= 0 Or PremFreq = 0 Or Ben_on_PUP = "N" Then Return 0
+
+'No additional paid up policies in last month of policy
+If t = ProjTerm() Then Return PropPUP_e(t - 1)
+
+'Set to 100% in appropriate month for policies that were paid up during the PeriodIF
+If t = PUP_mnth() Then Return 1
+
+'Assume policies are only made paid up in the month prior to a premium being due
+If Prem_PU(t + 1) &gt; 0 And t &gt; PeriodIF() Then Return 1 - (1 - PropPUP_e(t - 1)) * (1 - PUPRate) ^ (1 / PremFreq)
+
+Return PropPUP_e(t - 1)</Value>
+      <Format>0.000000</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>PropPUPinMth</Name>
+      <Parent>Policy</Parent>
+      <Previous>PropPUP_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5304836+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5304836+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5304836+01:00</LastModified>
+      <Notes>Proportion of in force polices that are made paid up in month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Proportion of in force policies becoming paid up in month t
+'PUP benefits not applicable to single premium policies
+If t &lt;= 0 Or PremFreq = 0 Or Ben_on_PUP = "N" Then Return 0
+
+Return PropPUP_e(t) - PropPUP_e(t - 1)</Value>
+      <Format>0.000000</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Res_e</Name>
+      <Parent>Valuation</Parent>
+      <Previous>TotExp_PV_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5304836+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5304836+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5304836+01:00</LastModified>
+      <Notes>Reserve at end of month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Calculate reserve at the end of month t
+
+If t = ProjTerm() Then Return 0
+
+Return DthBen_PV_e(t) + Maturity_PV_e(t) + Surr_PV_e(t) + TotExp_PV_e(t) - Prem_PV_e(t)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>SurrBen_IF_e</Name>
+      <Parent>Surrender</Parent>
+      <Previous>SurrBen_PUP_IF_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5304836+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5304836+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5304836+01:00</LastModified>
+      <Notes>Total surrender benefit paid at the end of month t to both premium paying and paid up policies</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Before policy commencement or no surrender benefit on product
+If t &lt;= 0 Or Ben_on_Surr = "N" Then Return 0
+
+'After period in which a surrender charge applies
+If Pol_Year(t) &gt; SurrChgeMaxRows_w Then Return SurrBen_PP_IF_e(t) + SurrBen_PUP_IF_e(t)
+
+'Surrender benefit less surrender charge
+Return  (SurrBen_PP_IF_e(t) + SurrBen_PUP_IF_e(t)) * (1 - SurrCharge_Tbl.Value(Pol_Year(t), Product))</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>SurrBen_PP_IF_e</Name>
+      <Parent>Surrender</Parent>
+      <Previous>SurrBen_PP_PU</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5304836+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5304836+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5304836+01:00</LastModified>
+      <Notes>Surrender benefit paid to premium paying policies surrendering in month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Before policy commencement or no surrender benefit on product
+If t &lt;= 0 Or Ben_on_Surr = "N" Then Return 0
+
+'Surrender benefit paid to premium paying policies surrendering in month t
+Return PropIF_e(t - 1) * (1 - DeathRate(t)) * SurrRate(t) * (1 - PropPUP_e(t - 1)) * SurrBen_PP_PU(t)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>SurrBen_PP_PU</Name>
+      <Parent>Surrender</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5304836+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5304836+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5304836+01:00</LastModified>
+      <Notes>Surrender benefit per unit in month t for premium paying policies</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Before policy commencement or no surrender benefit on product
+If t &lt;= 0 Or Ben_on_Surr = "N" Then Return 0
+
+'Surrender benefit at time t is the sum of all premiums paid up until (and incl) time t
+Return SurrBen_PP_PU(t - 1) + Prem_PU(t)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>SurrBen_PUP_IF_e</Name>
+      <Parent>Surrender</Parent>
+      <Previous>SurrBen_PUP_PU</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5304836+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5304836+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5304836+01:00</LastModified>
+      <Notes>Surrender benefit paid to paid up policies surrendering in month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Before policy commencement, no surrender benefits or PUP option on product or single premium policy
+If t &lt;= 0 Or Ben_on_Surr = "N" Or Ben_on_PUP = "N" Or PremFreq = 0 Then Return 0
+
+Return PropIF_e(t - 1) * (1 - DeathRate(t)) * SurrRate(t) * SurrBen_PUP_PU(t) </Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>SurrBen_PUP_PU</Name>
+      <Parent>Surrender</Parent>
+      <Previous>SurrBen_PP_IF_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5304836+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5304836+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5304836+01:00</LastModified>
+      <Notes>Surrender benefit per unit in month t for paid up plans</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Before policy commencement, no surrender benefits or PUP option on product or single premium policy
+If t &lt;= 0 Or Ben_on_Surr = "N" Or Ben_on_PUP = "N" Or PremFreq = 0 Then Return 0
+
+Return SurrBen_PUP_PU(t - 1) + PropPUPinMth(t - 1) * SurrBen_PP_PU(t - 1)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>SurrRate</Name>
+      <Parent>Persistency</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5314811+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5314811+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5314811+01:00</LastModified>
+      <Notes>Proportion of in force policies assumed to lapse/surrender at end of month t.  Assumed to occur after any deaths during the month.</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Assume policy still in force at later of policy commencement and valuation date
+If t &lt;= Max(0, PeriodIF()) Then Return 0
+
+If t = ProjTerm() Then Return 0 ' Assume no lapses/surrenders in last month of policy
+
+'Lapses (ie no benefit payable on exit)
+If Ben_on_Surr = "N" Then
+    'Assume lapses only happen immediately before a premium is due
+    If Prem_PU(t + 1) &gt; 0 Then Return 1 - (1 - PersistencyTbl_w.value(Min(Pol_Year(t), PersistencyMaxRows_w))) ^ (1 / PremFreq)
+Else ' Surrenders
+    'Assume surrender can happen at any point
+    Return 1 - (1 - PersistencyTbl_w.value(Min(Pol_Year(t), PersistencyMaxRows_w))) ^ (1 / 12)
+End If</Value>
+      <Format>0.000000</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Surr_PV_e</Name>
+      <Parent>Valuation</Parent>
+      <Previous>DthBen_PV_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5314811+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5314811+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5314811+01:00</LastModified>
+      <Notes>Present value (at end of month t) of all surrender claims paid from month t+1 onwards</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Present Value at the end of month t of all surrender claims paid from month t+1 onwards
+
+If t = ProjTerm() Then Return 0
+
+Return (Surr_PV_e(t + 1) + SurrBen_IF_e(t + 1) ) * DiscFac_mnth(t + 1)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Surrender</Name>
+      <Parent>Benefit</Parent>
+      <Previous>Death</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5314811+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5314811+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5314811+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>TotExp_PV_e</Name>
+      <Parent>Valuation</Parent>
+      <Previous>Maturity_PV_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5314811+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5314811+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5314811+01:00</LastModified>
+      <Notes>Present value (at end of month t) for all expenses paid from month t+1 onwards</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Present Value at the end of month t of all expenses paid from month t+1 onwards
+
+If t = ProjTerm() Then Return 0
+
+Return (TotExp_PV_e(t + 1) + ExpRen_IF_e(t + 1) + ExpClaim_IF_e(t + 1) ) * DiscFac_mnth(t + 1) + ExpInit_b(t + 1)</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>ValMnth</Name>
+      <Parent>Projection</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5314811+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5314811+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5314811+01:00</LastModified>
+      <Notes>Number of months since valuation date</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>'&lt;Attributes(CalcOnce:=True)&gt;
+Return t - PeriodIF()</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>ValYr</Name>
+      <Parent>Projection</Parent>
+      <Previous>ValMnth</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5314811+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5314811+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5314811+01:00</LastModified>
+      <Notes>Year of valuation, first 12 months immediately following the valuation date have ValnYear of 1</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>'&lt;Attributes(CalcOnce:=True)&gt;
+If ValMnth(t) &lt; 0 Then Return CInt(Fix((ValMnth(t) - 11) / 12))
+
+Return CInt(Fix((ValMnth(t) + 11) / 12))</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Valuation</Name>
+      <Parent />
+      <Previous>Expenses</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5314811+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5314811+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5314811+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+  </Formulae>
+  <Runs />
+</Model>

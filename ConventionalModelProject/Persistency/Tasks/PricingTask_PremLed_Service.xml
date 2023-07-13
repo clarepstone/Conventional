@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<DataConversion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>PricingTask_PremLed_Service</Name>
+  <Parent>Mobile Modeller Tasks</Parent>
+  <Previous>PricingTask_BenLed_Service</Previous>
+  <LastModifiedBy>ClareStone</LastModifiedBy>
+  <LastModifiedOn>2023-07-13T14:47:21.5440073+01:00</LastModifiedOn>
+  <CreatedBy>ClareStone</CreatedBy>
+  <CreatedOn>2023-07-13T14:47:21.5440073+01:00</CreatedOn>
+  <Folder>false</Folder>
+  <LastModified>2023-07-13T14:47:21.5440073+01:00</LastModified>
+  <Notes>Used by Mo.net Mobile Modeller for Premium Led quotes</Notes>
+  <IsExpanded>true</IsExpanded>
+  <Type>Group</Type>
+  <UseDefaultFolder>true</UseDefaultFolder>
+  <UseDataSource>false</UseDataSource>
+  <DebugInfo>true</DebugInfo>
+  <ReThrowException>true</ReThrowException>
+  <ExceptionWriteMax>20</ExceptionWriteMax>
+  <ExceptionAbortMax>1000</ExceptionAbortMax>
+  <TableSplitDelimiter>_</TableSplitDelimiter>
+  <WorkerPCs>false</WorkerPCs>
+  <MultiThreaded>false</MultiThreaded>
+  <IsHpcRun>false</IsHpcRun>
+  <ThreadsEvenSplit>true</ThreadsEvenSplit>
+  <ParallelSplits>0</ParallelSplits>
+  <Threads>0</Threads>
+  <SequentialStartUp>false</SequentialStartUp>
+  <ProcessResultsOnMaster>true</ProcessResultsOnMaster>
+  <StartUpDelay>0</StartUpDelay>
+  <BackupAfterRun>false</BackupAfterRun>
+  <IncludeResultsInBackup>false</IncludeResultsInBackup>
+  <RevisionIds />
+  <Models />
+  <Code>Public Overrides Sub SetInputs(inputs As Dictionary(Of String, String)) 
+
+    PricingTask_PremLed.InputsTable = New DataRequest(inputs)
+    
+End Sub        
+
+Sub Run() 
+
+    PricingTask_PremLed.Run(False)
+
+End Sub
+
+Public Overrides Function GetResults() As Dictionary(Of String, String) 
+
+    Dim dict = New Dictionary(Of String, String)
+
+    dict.Add("PolicyRef", CStr(PricingTask_PremLed.Record.UniqueID))
+
+    dict.Add("Result", CStr(PricingTask_PremLed.GoalSeekResult_w()))
+
+'For histogram
+    
+    For i = 0 To PricingTask_PremLed.Record.ProjTerm
+        If PricingTask_PremLed.Record.Product = "WOL" Or PricingTask_PremLed.Record.Product = "ENDOW" Then
+            'For Whole of Life and Endowment, populate histogram with surrender value
+            dict.Add("Amount[" &amp; i &amp; "]",CStr(PricingTask_PremLed.Record.SurrBen_PP_PU(i)))
+        Else If PricingTask_PremLed.Record.Product = "TERM"  
+            'For Term insurance return death benefit (this will be level amount each month if BenType = LEVEL       
+            dict.Add("Amount[" &amp; i &amp; "]",CStr(PricingTask_PremLed.Record.DthBen_PP_PU(i)))
+        Else If PricingTask_PremLed.Record.Product = "PURE_ENDOW"
+            'For Pure Endowments, return maturity benefit
+            If i &lt; PricingTask_PremLed.Record.ProjTerm Then 
+                dict.Add("Amount[" &amp; i &amp; "]",CStr(0))
+            Else
+                dict.Add("Amount[" &amp; i &amp; "]",CStr(PricingTask_PremLed.Record.MatValue))                
+            End If 
+        End If         
+    Next i
+
+    Return dict
+
+End Function</Code>
+  <UserSettings />
+  <InputOverrides>false</InputOverrides>
+  <ParameterOverrides>false</ParameterOverrides>
+  <ReadFromFileIfAvailable>false</ReadFromFileIfAvailable>
+  <Dynamic>false</Dynamic>
+  <UseDynamicAttributes>false</UseDynamicAttributes>
+  <ColumnOutputTotals>true</ColumnOutputTotals>
+  <ColumnOutputStart>0</ColumnOutputStart>
+  <ColumnOutputEnd>24</ColumnOutputEnd>
+  <ColumnSumTotals>true</ColumnSumTotals>
+  <ColumnSumStart>0</ColumnSumStart>
+  <ColumnSumEnd>24</ColumnSumEnd>
+  <PerRecordResults>false</PerRecordResults>
+  <SuppressRecordIndices>false</SuppressRecordIndices>
+  <Delimiter>Tab</Delimiter>
+  <MaxTerm>1200</MaxTerm>
+  <CircularReferenceCheck>false</CircularReferenceCheck>
+  <ResetParamDefaults>false</ResetParamDefaults>
+  <SuppressVariableValidation>false</SuppressVariableValidation>
+  <ApplyGrouping>false</ApplyGrouping>
+  <ApplySorting>false</ApplySorting>
+  <ApplyMergeTest>false</ApplyMergeTest>
+  <Threshold>0</Threshold>
+  <ThreshholdType>None</ThreshholdType>
+  <IsDataConversion>false</IsDataConversion>
+</DataConversion>

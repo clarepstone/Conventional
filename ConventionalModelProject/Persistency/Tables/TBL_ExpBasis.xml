@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>TBL_ExpBasis</Name>
+  <Parent>Basis Tables</Parent>
+  <Previous />
+  <LastModifiedBy>ClareStone</LastModifiedBy>
+  <LastModifiedOn>2023-07-13T14:47:21.5544989+01:00</LastModifiedOn>
+  <CreatedBy>ClareStone</CreatedBy>
+  <CreatedOn>2023-07-13T14:47:21.5544989+01:00</CreatedOn>
+  <Folder>false</Folder>
+  <LastModified>2023-07-13T14:47:21.5544989+01:00</LastModified>
+  <Notes />
+  <IsExpanded>true</IsExpanded>
+  <IsProjectTable>true</IsProjectTable>
+  <IsDataSource>false</IsDataSource>
+  <IsODBCSource>false</IsODBCSource>
+  <IsDatFileSource>false</IsDatFileSource>
+  <IsDatabaseConnection>false</IsDatabaseConnection>
+  <FilePath>[Tables]</FilePath>
+  <Schema />
+  <Reference>ExpBasisNC</Reference>
+  <Delimiter>	</Delimiter>
+  <Internal>false</Internal>
+  <LookUpType>RowAndCol</LookUpType>
+  <BasisTable>true</BasisTable>
+  <LookUpVars>Product, CalcBasis_w</LookUpVars>
+  <IndexCols>2</IndexCols>
+  <DoubleType>true</DoubleType>
+  <Rows>1</Rows>
+  <Cols>1</Cols>
+  <HasHeadings>true</HasHeadings>
+  <RunControlTable>false</RunControlTable>
+</Table>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CreateDLLSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CreateDLL>false</CreateDLL>
+  <ExcelReader>true</ExcelReader>
+  <Statistics>false</Statistics>
+  <Access>false</Access>
+  <Oracle>false</Oracle>
+  <DebugInfo>false</DebugInfo>
+  <Target64Bit>false</Target64Bit>
+  <EmbedResources>true</EmbedResources>
+  <IncludeOrigo>false</IncludeOrigo>
+  <CustomPaths />
+  <Bases>ReserveBasis_YE16v1</Bases>
+  <RootNamespace />
+</CreateDLLSettings>

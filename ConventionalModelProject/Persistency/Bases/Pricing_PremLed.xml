@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<Basis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Pricing_PremLed</Name>
+  <Parent />
+  <Previous>Pricing_BenLed</Previous>
+  <LastModifiedBy>ClareStone</LastModifiedBy>
+  <LastModifiedOn>2023-07-13T14:47:21.5634743+01:00</LastModifiedOn>
+  <CreatedBy>ClareStone</CreatedBy>
+  <CreatedOn>2023-07-13T14:47:21.5634743+01:00</CreatedOn>
+  <Folder>false</Folder>
+  <LastModified>2023-07-13T14:47:21.5634743+01:00</LastModified>
+  <Notes />
+  <IsExpanded>true</IsExpanded>
+  <Model>Disc_CF_Model</Model>
+  <ProjectScope>false</ProjectScope>
+  <Inherit>false</Inherit>
+  <InheritsFrom />
+  <BasisItems>
+    <BasisItem>
+      <Name>ValDate</Name>
+      <ModelPath>Disc_CF_Model</ModelPath>
+      <Custom>true</Custom>
+      <Value>01/01/2017</Value>
+      <Source />
+      <Basis />
+      <Override>false</Override>
+    </BasisItem>
+    <BasisItem>
+      <Name>DecrSA_Int</Name>
+      <ModelPath>Disc_CF_Model</ModelPath>
+      <Custom>true</Custom>
+      <Value>.1</Value>
+      <Source />
+      <Basis />
+      <Override>false</Override>
+    </BasisItem>
+    <BasisItem>
+      <Name>PersistencyBasis_tbl</Name>
+      <ModelPath>Disc_CF_Model</ModelPath>
+      <Custom>true</Custom>
+      <Value>TBL_PersistencyBasis</Value>
+      <Source />
+      <Basis />
+      <Override>false</Override>
+    </BasisItem>
+    <BasisItem>
+      <Name>Val_Int_tbl</Name>
+      <ModelPath>Disc_CF_Model</ModelPath>
+      <Custom>true</Custom>
+      <Value>TBL_Val_IntRate</Value>
+      <Source />
+      <Basis />
+      <Override>false</Override>
+    </BasisItem>
+    <BasisItem>
+      <Name>CalcType</Name>
+      <ModelPath>Disc_CF_Model</ModelPath>
+      <Custom>true</Custom>
+      <Value>PremLed</Value>
+      <Source />
+      <Basis />
+      <Override>false</Override>
+    </BasisItem>
+    <BasisItem>
+      <Name>ValIntMaxRows_w</Name>
+      <ModelPath>Disc_CF_Model</ModelPath>
+      <Custom>true</Custom>
+      <Value>20</Value>
+      <Source />
+      <Basis />
+      <Override>false</Override>
+    </BasisItem>
+    <BasisItem>
+      <Name>MortBasis_tbl</Name>
+      <ModelPath>Disc_CF_Model.SM_Mortality_Life1</ModelPath>
+      <Custom>true</Custom>
+      <Value>TBL_MortBasis</Value>
+      <Source />
+      <Basis />
+      <Override>false</Override>
+    </BasisItem>
+    <BasisItem>
+      <Name>MortBasis_tbl</Name>
+      <ModelPath>Disc_CF_Model.SM_Mortality_Life2</ModelPath>
+      <Custom>true</Custom>
+      <Value>TBL_MortBasis</Value>
+      <Source />
+      <Basis />
+      <Override>false</Override>
+    </BasisItem>
+  </BasisItems>
+  <ProjectLevelBasisItems />
+</Basis>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<DataConversion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>PricingTask_BenLed</Name>
+  <Parent>Projection Tasks</Parent>
+  <Previous>ReserveTask_YE16v1</Previous>
+  <LastModifiedBy>ClareStone</LastModifiedBy>
+  <LastModifiedOn>2023-07-13T14:47:21.5430102+01:00</LastModifiedOn>
+  <CreatedBy>ClareStone</CreatedBy>
+  <CreatedOn>2023-07-13T14:47:21.5430102+01:00</CreatedOn>
+  <Key>TermTask_YE16v11</Key>
+  <Folder>false</Folder>
+  <LastModified>2023-07-13T14:47:21.5430102+01:00</LastModified>
+  <Notes />
+  <IsExpanded>true</IsExpanded>
+  <Type>Indiv</Type>
+  <UseDefaultFolder>true</UseDefaultFolder>
+  <UseDataSource>false</UseDataSource>
+  <DebugInfo>true</DebugInfo>
+  <ReThrowException>true</ReThrowException>
+  <ExceptionWriteMax>20</ExceptionWriteMax>
+  <ExceptionAbortMax>1000</ExceptionAbortMax>
+  <TableSplitDelimiter>_</TableSplitDelimiter>
+  <WorkerPCs>false</WorkerPCs>
+  <MultiThreaded>false</MultiThreaded>
+  <IsHpcRun>false</IsHpcRun>
+  <ThreadsEvenSplit>true</ThreadsEvenSplit>
+  <ParallelSplits>0</ParallelSplits>
+  <Threads>0</Threads>
+  <SequentialStartUp>false</SequentialStartUp>
+  <ProcessResultsOnMaster>true</ProcessResultsOnMaster>
+  <StartUpDelay>0</StartUpDelay>
+  <BackupAfterRun>false</BackupAfterRun>
+  <IncludeResultsInBackup>false</IncludeResultsInBackup>
+  <RevisionIds />
+  <Code>ExecuteRecords(OutputResults)
+If OutputResults Then ReferencedProjections.WriteResults()</Code>
+  <ModelName>Disc_CF_Model</ModelName>
+  <Basis>Pricing_BenLed</Basis>
+  <InputsTable>
+    <Name>NewItem_Inputs</Name>
+    <Parent />
+    <Previous />
+    <LastModifiedBy>ClareStone</LastModifiedBy>
+    <LastModifiedOn>2023-07-13T14:47:21.5394607+01:00</LastModifiedOn>
+    <CreatedBy>ClareStone</CreatedBy>
+    <CreatedOn>2023-07-13T14:47:21.5394607+01:00</CreatedOn>
+    <Folder>false</Folder>
+    <LastModified>2023-07-13T14:47:21.5394607+01:00</LastModified>
+    <Notes />
+    <IsExpanded>true</IsExpanded>
+    <IsProjectTable>false</IsProjectTable>
+    <IsDataSource>false</IsDataSource>
+    <IsODBCSource>false</IsODBCSource>
+    <IsDatFileSource>false</IsDatFileSource>
+    <IsDatabaseConnection>false</IsDatabaseConnection>
+    <FilePath>[Inputs]</FilePath>
+    <Schema />
+    <Reference>Inputs_BenLed_NonCorrupt</Reference>
+    <Delimiter>	</Delimiter>
+    <Internal>false</Internal>
+    <LookUpType>RowAndCol</LookUpType>
+    <BasisTable>false</BasisTable>
+    <IndexCols>1</IndexCols>
+    <DoubleType>true</DoubleType>
+    <Rows>2</Rows>
+    <Cols>20</Cols>
+    <ColWidths>163;100;100;100;100;100;100;100;100;100;100;100;100;100;100;100;100;100;100;100;100;100</ColWidths>
+    <HasHeadings>true</HasHeadings>
+    <RunControlTable>false</RunControlTable>
+  </InputsTable>
+  <CopyProperties />
+  <InputOverrides>true</InputOverrides>
+  <ParameterOverrides>false</ParameterOverrides>
+  <ReadFromFileIfAvailable>false</ReadFromFileIfAvailable>
+  <ProjectionInputs />
+  <Dynamic>false</Dynamic>
+  <UseDynamicAttributes>false</UseDynamicAttributes>
+  <ColumnOutputTotals>true</ColumnOutputTotals>
+  <ColumnOutputStart>0</ColumnOutputStart>
+  <ColumnOutputEnd>300</ColumnOutputEnd>
+  <ColumnSumTotals>true</ColumnSumTotals>
+  <ColumnSumStart>0</ColumnSumStart>
+  <ColumnSumEnd>1500</ColumnSumEnd>
+  <PerRecordResults>false</PerRecordResults>
+  <SuppressRecordIndices>false</SuppressRecordIndices>
+  <CustomRecordOutput>UniqueID, GoalSeekResult_w, PremAnn, MatValue, DthBen, Res_e</CustomRecordOutput>
+  <Delimiter>Tab</Delimiter>
+  <Targets />
+  <MaxTerm>1200</MaxTerm>
+  <CircularReferenceCheck>false</CircularReferenceCheck>
+  <ResetParamDefaults>false</ResetParamDefaults>
+  <SuppressVariableValidation>false</SuppressVariableValidation>
+  <ApplyGrouping>false</ApplyGrouping>
+  <ApplySorting>false</ApplySorting>
+  <ApplyMergeTest>false</ApplyMergeTest>
+  <Threshold>0</Threshold>
+  <ThreshholdType>None</ThreshholdType>
+  <IsDataConversion>false</IsDataConversion>
+</DataConversion>

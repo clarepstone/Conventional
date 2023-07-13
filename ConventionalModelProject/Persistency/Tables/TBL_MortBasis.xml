@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>TBL_MortBasis</Name>
+  <Parent>Basis Tables</Parent>
+  <Previous>TBL_ProdBenefits</Previous>
+  <LastModifiedBy>ClareStone</LastModifiedBy>
+  <LastModifiedOn>2023-07-13T14:47:21.5574624+01:00</LastModifiedOn>
+  <CreatedBy>ClareStone</CreatedBy>
+  <CreatedOn>2023-07-13T14:47:21.5574624+01:00</CreatedOn>
+  <Folder>false</Folder>
+  <LastModified>2023-07-13T14:47:21.5574624+01:00</LastModified>
+  <Notes>Mortality basis table for term insurance policies</Notes>
+  <IsExpanded>true</IsExpanded>
+  <IsProjectTable>true</IsProjectTable>
+  <IsDataSource>false</IsDataSource>
+  <IsODBCSource>false</IsODBCSource>
+  <IsDatFileSource>false</IsDatFileSource>
+  <IsDatabaseConnection>false</IsDatabaseConnection>
+  <FilePath>[Tables]</FilePath>
+  <Schema />
+  <Reference>MortBasisNC</Reference>
+  <Delimiter>	</Delimiter>
+  <Internal>false</Internal>
+  <LookUpType>RowAndCol</LookUpType>
+  <BasisTable>true</BasisTable>
+  <LookUpVars>Product, CalcBasis_w,Sex, Smoker</LookUpVars>
+  <IndexCols>4</IndexCols>
+  <DoubleType>false</DoubleType>
+  <Rows>7</Rows>
+  <Cols>5</Cols>
+  <HasHeadings>true</HasHeadings>
+  <RunControlTable>false</RunControlTable>
+</Table>

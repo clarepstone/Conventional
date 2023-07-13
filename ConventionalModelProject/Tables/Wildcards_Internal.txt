@@ -1,0 +1,3 @@
+Wildcard	Replacement
+Inputs	Tables\00 NonCorrupt_TestPack_Conven.xlsx
+Tables	Tables\00 NonCorrupt_TestPack_Conven.xlsx

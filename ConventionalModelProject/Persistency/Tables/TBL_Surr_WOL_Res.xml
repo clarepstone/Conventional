@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>TBL_Surr_WOL_Res</Name>
+  <Parent>Persistency Tables</Parent>
+  <Previous>TBL_Lapse_LEVEL_Res</Previous>
+  <LastModifiedBy>ClareStone</LastModifiedBy>
+  <LastModifiedOn>2023-07-13T14:47:21.5594566+01:00</LastModifiedOn>
+  <CreatedBy>ClareStone</CreatedBy>
+  <CreatedOn>2023-07-13T14:47:21.5594566+01:00</CreatedOn>
+  <Folder>false</Folder>
+  <LastModified>2023-07-13T14:47:21.5594566+01:00</LastModified>
+  <Notes>Lapse table for term insurance policies with level sum assured</Notes>
+  <IsExpanded>true</IsExpanded>
+  <IsProjectTable>true</IsProjectTable>
+  <IsDataSource>false</IsDataSource>
+  <IsODBCSource>false</IsODBCSource>
+  <IsDatFileSource>false</IsDatFileSource>
+  <IsDatabaseConnection>false</IsDatabaseConnection>
+  <FilePath>[Tables]</FilePath>
+  <Schema />
+  <Reference>Surr_WOL_Res</Reference>
+  <Delimiter>	</Delimiter>
+  <Internal>false</Internal>
+  <LookUpType>Row</LookUpType>
+  <BasisTable>false</BasisTable>
+  <IndexCols>1</IndexCols>
+  <DoubleType>true</DoubleType>
+  <Rows>1</Rows>
+  <Cols>1</Cols>
+  <HasHeadings>true</HasHeadings>
+  <RunControlTable>false</RunControlTable>
+</Table>

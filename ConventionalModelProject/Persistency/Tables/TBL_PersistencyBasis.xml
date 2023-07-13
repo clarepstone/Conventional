@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>TBL_PersistencyBasis</Name>
+  <Parent>Basis Tables</Parent>
+  <Previous>TBL_MortBasis</Previous>
+  <LastModifiedBy>ClareStone</LastModifiedBy>
+  <LastModifiedOn>2023-07-13T14:47:21.5574624+01:00</LastModifiedOn>
+  <CreatedBy>ClareStone</CreatedBy>
+  <CreatedOn>2023-07-13T14:47:21.5574624+01:00</CreatedOn>
+  <Folder>false</Folder>
+  <LastModified>2023-07-13T14:47:21.5574624+01:00</LastModified>
+  <Notes>Lapse basis table for term insurance policies</Notes>
+  <IsExpanded>true</IsExpanded>
+  <IsProjectTable>true</IsProjectTable>
+  <IsDataSource>false</IsDataSource>
+  <IsODBCSource>false</IsODBCSource>
+  <IsDatFileSource>false</IsDatFileSource>
+  <IsDatabaseConnection>false</IsDatabaseConnection>
+  <FilePath>[Tables]</FilePath>
+  <Schema />
+  <Reference>PersistencyBasisNC</Reference>
+  <Delimiter>	</Delimiter>
+  <Internal>false</Internal>
+  <LookUpType>Row</LookUpType>
+  <BasisTable>false</BasisTable>
+  <IndexCols>5</IndexCols>
+  <DoubleType>false</DoubleType>
+  <Rows>1</Rows>
+  <Cols>1</Cols>
+  <ColWidths>100;100;100;100;100;155</ColWidths>
+  <HasHeadings>true</HasHeadings>
+  <RunControlTable>false</RunControlTable>
+</Table>

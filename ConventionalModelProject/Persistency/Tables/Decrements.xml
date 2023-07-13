@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Decrements</Name>
+  <Parent />
+  <Previous>Wildcards</Previous>
+  <LastModifiedBy>ClareStone</LastModifiedBy>
+  <LastModifiedOn>2023-07-13T14:47:21.5440073+01:00</LastModifiedOn>
+  <CreatedBy>ClareStone</CreatedBy>
+  <CreatedOn>2023-07-13T14:47:21.5440073+01:00</CreatedOn>
+  <Folder>true</Folder>
+  <LastModified>2023-07-13T14:47:21.5440073+01:00</LastModified>
+  <Notes />
+  <IsExpanded>true</IsExpanded>
+  <IsProjectTable>true</IsProjectTable>
+  <IsDataSource>false</IsDataSource>
+  <IsODBCSource>false</IsODBCSource>
+  <IsDatFileSource>false</IsDatFileSource>
+  <IsDatabaseConnection>false</IsDatabaseConnection>
+  <FilePath />
+  <Schema />
+  <Reference />
+  <Delimiter>	</Delimiter>
+  <Internal>false</Internal>
+  <LookUpType>Row</LookUpType>
+  <BasisTable>false</BasisTable>
+  <IndexCols>1</IndexCols>
+  <DoubleType>true</DoubleType>
+  <Rows>1</Rows>
+  <Cols>1</Cols>
+  <HasHeadings>true</HasHeadings>
+  <RunControlTable>false</RunControlTable>
+</Table>

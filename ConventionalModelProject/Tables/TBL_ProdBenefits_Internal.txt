@@ -1,0 +1,5 @@
+Product	Ben_on_Dth	Ben_on_Surr	Ben_on_Mat	Ben_on_PUP
+TERM	Y	N	N	N
+WOL	Y	Y	N	N
+PURE_ENDOW	N	N	Y	Y
+ENDOW	Y	Y	Y	Y

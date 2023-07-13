@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>TBL_Val_IntRate</Name>
+  <Parent>Interest Rate Tables</Parent>
+  <Previous />
+  <LastModifiedBy>ClareStone</LastModifiedBy>
+  <LastModifiedOn>2023-07-13T14:47:21.5624761+01:00</LastModifiedOn>
+  <CreatedBy>ClareStone</CreatedBy>
+  <CreatedOn>2023-07-13T14:47:21.5624761+01:00</CreatedOn>
+  <Folder>false</Folder>
+  <LastModified>2023-07-13T14:47:21.5624761+01:00</LastModified>
+  <Notes>Valuation interest rate table</Notes>
+  <IsExpanded>true</IsExpanded>
+  <IsProjectTable>true</IsProjectTable>
+  <IsDataSource>false</IsDataSource>
+  <IsODBCSource>false</IsODBCSource>
+  <IsDatFileSource>false</IsDatFileSource>
+  <IsDatabaseConnection>false</IsDatabaseConnection>
+  <FilePath>[Tables]</FilePath>
+  <Schema />
+  <Reference>ValRateNC</Reference>
+  <Delimiter>	</Delimiter>
+  <Internal>false</Internal>
+  <LookUpType>RowAndCol</LookUpType>
+  <BasisTable>false</BasisTable>
+  <LookUpVars>ValYear,CalcBasis,Product</LookUpVars>
+  <IndexCols>1</IndexCols>
+  <DoubleType>true</DoubleType>
+  <Rows>1</Rows>
+  <Cols>1</Cols>
+  <ColWidths>100;100;100;133;151;100;100;100;100</ColWidths>
+  <HasHeadings>true</HasHeadings>
+  <RunControlTable>false</RunControlTable>
+</Table>

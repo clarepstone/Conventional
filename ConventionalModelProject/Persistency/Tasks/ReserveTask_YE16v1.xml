@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<DataConversion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>ReserveTask_YE16v1</Name>
+  <Parent>Projection Tasks</Parent>
+  <Previous />
+  <LastModifiedBy>ClareStone</LastModifiedBy>
+  <LastModifiedOn>2023-07-13T14:47:21.5440073+01:00</LastModifiedOn>
+  <CreatedBy>ClareStone</CreatedBy>
+  <CreatedOn>2023-07-13T14:47:21.5440073+01:00</CreatedOn>
+  <Key>TermTask_YE16v1</Key>
+  <Folder>false</Folder>
+  <LastModified>2023-07-13T14:47:21.5440073+01:00</LastModified>
+  <Notes />
+  <IsExpanded>true</IsExpanded>
+  <Type>Indiv</Type>
+  <UseDefaultFolder>true</UseDefaultFolder>
+  <UseDataSource>false</UseDataSource>
+  <DebugInfo>true</DebugInfo>
+  <ReThrowException>true</ReThrowException>
+  <ExceptionWriteMax>20</ExceptionWriteMax>
+  <ExceptionAbortMax>1000</ExceptionAbortMax>
+  <TableSplitDelimiter>_</TableSplitDelimiter>
+  <WorkerPCs>false</WorkerPCs>
+  <MultiThreaded>false</MultiThreaded>
+  <IsHpcRun>false</IsHpcRun>
+  <ThreadsEvenSplit>true</ThreadsEvenSplit>
+  <ParallelSplits>0</ParallelSplits>
+  <Threads>0</Threads>
+  <SequentialStartUp>false</SequentialStartUp>
+  <ProcessResultsOnMaster>true</ProcessResultsOnMaster>
+  <StartUpDelay>0</StartUpDelay>
+  <BackupAfterRun>false</BackupAfterRun>
+  <IncludeResultsInBackup>false</IncludeResultsInBackup>
+  <PackageVersion>0.0.0.2</PackageVersion>
+  <RevisionIds>
+    <item>
+      <key>
+        <int>1</int>
+      </key>
+      <value>
+        <string>f5aa1d5b-0d6f-43fb-a924-7b3bc67ba2d9</string>
+      </value>
+    </item>
+    <item>
+      <key>
+        <int>2</int>
+      </key>
+      <value>
+        <string>e5248c13-6333-4a86-8150-2706a8d6fb3c</string>
+      </value>
+    </item>
+  </RevisionIds>
+  <Code>ExecuteRecords(OutputResults)
+If OutputResults Then ReferencedProjections.WriteResults()</Code>
+  <ModelName>Disc_CF_Model</ModelName>
+  <Basis>ReserveBasis_YE16v1</Basis>
+  <InputsTable>
+    <Name>NewItem_Inputs</Name>
+    <Parent />
+    <Previous />
+    <LastModifiedBy>ClareStone</LastModifiedBy>
+    <LastModifiedOn>2023-07-13T14:47:21.5440073+01:00</LastModifiedOn>
+    <CreatedBy>ClareStone</CreatedBy>
+    <CreatedOn>2023-07-13T14:47:21.5440073+01:00</CreatedOn>
+    <Folder>false</Folder>
+    <LastModified>2023-07-13T14:47:21.5440073+01:00</LastModified>
+    <Notes />
+    <IsExpanded>true</IsExpanded>
+    <IsProjectTable>false</IsProjectTable>
+    <IsDataSource>false</IsDataSource>
+    <IsODBCSource>false</IsODBCSource>
+    <IsDatFileSource>false</IsDatFileSource>
+    <IsDatabaseConnection>false</IsDatabaseConnection>
+    <FilePath>[Inputs]</FilePath>
+    <Schema />
+    <Reference>Inputs_Reserve_NonCorrupt</Reference>
+    <Delimiter>	</Delimiter>
+    <Internal>false</Internal>
+    <LookUpType>RowAndCol</LookUpType>
+    <BasisTable>false</BasisTable>
+    <IndexCols>1</IndexCols>
+    <DoubleType>true</DoubleType>
+    <Rows>2</Rows>
+    <Cols>20</Cols>
+    <HasHeadings>true</HasHeadings>
+    <RunControlTable>false</RunControlTable>
+  </InputsTable>
+  <CopyProperties />
+  <InputOverrides>true</InputOverrides>
+  <ParameterOverrides>false</ParameterOverrides>
+  <ReadFromFileIfAvailable>false</ReadFromFileIfAvailable>
+  <ProjectionInputs />
+  <Dynamic>false</Dynamic>
+  <UseDynamicAttributes>false</UseDynamicAttributes>
+  <ColumnOutputTotals>true</ColumnOutputTotals>
+  <ColumnOutputStart>0</ColumnOutputStart>
+  <ColumnOutputEnd>300</ColumnOutputEnd>
+  <ColumnSumTotals>true</ColumnSumTotals>
+  <ColumnSumStart>0</ColumnSumStart>
+  <ColumnSumEnd>300</ColumnSumEnd>
+  <PerRecordResults>false</PerRecordResults>
+  <SuppressRecordIndices>false</SuppressRecordIndices>
+  <CustomRecordOutput>UniqueID, Res_e</CustomRecordOutput>
+  <Delimiter>Tab</Delimiter>
+  <Targets />
+  <MaxTerm>1200</MaxTerm>
+  <CircularReferenceCheck>false</CircularReferenceCheck>
+  <ResetParamDefaults>false</ResetParamDefaults>
+  <SuppressVariableValidation>false</SuppressVariableValidation>
+  <ProjectionDllPath>C:\Users\ClareStone\Documents\Mo.net Projects\ConventionalModelProject\ReserveTask_YE16v1_EXEFolder</ProjectionDllPath>
+  <ApplyGrouping>false</ApplyGrouping>
+  <ApplySorting>false</ApplySorting>
+  <ApplyMergeTest>false</ApplyMergeTest>
+  <Threshold>0</Threshold>
+  <ThreshholdType>None</ThreshholdType>
+  <IsDataConversion>false</IsDataConversion>
+</DataConversion>

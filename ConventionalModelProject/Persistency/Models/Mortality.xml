@@ -1,0 +1,690 @@
+<?xml version="1.0"?>
+<Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Mortality</Name>
+  <Parent>Sub Models</Parent>
+  <Previous />
+  <LastModifiedBy>ClareStone</LastModifiedBy>
+  <LastModifiedOn>2023-07-13T14:47:21.5324781+01:00</LastModifiedOn>
+  <CreatedBy>ClareStone</CreatedBy>
+  <CreatedOn>2023-07-13T14:47:21.5324781+01:00</CreatedOn>
+  <Folder>false</Folder>
+  <LastModified>2023-07-13T14:47:21.5324781+01:00</LastModified>
+  <Notes>Calculates the mortality rates applicable to life x</Notes>
+  <IsExpanded>true</IsExpanded>
+  <Description>Mortality Submodel</Description>
+  <Inherit>false</Inherit>
+  <Declarations />
+  <UseDefaultExecuteCode>false</UseDefaultExecuteCode>
+  <Inputs>
+    <Input>
+      <Name>Age</Name>
+      <Parent>Life</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5324781+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5324781+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5324781+01:00</LastModified>
+      <Notes>Age attained (rounded to 2 d.p.) at policy commencement date</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>35</Value>
+      <Format>##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>true</AllowNulls>
+    </Input>
+    <Input>
+      <Name>Life</Name>
+      <Parent />
+      <Previous>Policy</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5324781+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5324781+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5324781+01:00</LastModified>
+      <Notes>Inputs specific to each life</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>MortAgeAdj</Name>
+      <Parent>Life</Parent>
+      <Previous>Sex</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5324781+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5324781+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5324781+01:00</LastModified>
+      <Notes>Age adjustment in months (+ve to make older, -ve to make younger). Used to adjust mortality in respect of lifestyle factors specific each life.</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>0</Value>
+      <Format>##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>true</AllowNulls>
+    </Input>
+    <Input>
+      <Name>MortMult</Name>
+      <Parent>Life</Parent>
+      <Previous>MortAgeAdj</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5324781+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5324781+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5324781+01:00</LastModified>
+      <Notes>Mortality multiplier applicable to life, &lt;100% = lighter mortality, 100% = no adjustment to mortality, &gt;100% = heavier mortality</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>1</Value>
+      <Format>#,##0.00%</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>true</AllowNulls>
+    </Input>
+    <Input>
+      <Name>Policy</Name>
+      <Parent />
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5324781+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5324781+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5324781+01:00</LastModified>
+      <Notes>Inputs specific to policy</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>Product</Name>
+      <Parent>Policy</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5324781+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5324781+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5324781+01:00</LastModified>
+      <Notes>Product Type: Term insurance (TERM), Whole of life assurance (WOL), Pure Endowment (PURE_ENDOW), Endowment (ENDOW)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>TERM</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>Sex</Name>
+      <Parent>Life</Parent>
+      <Previous>Smoker</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5334755+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5334755+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5334755+01:00</LastModified>
+      <Notes>Gender (M,F)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>M</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+    <Input>
+      <Name>Smoker</Name>
+      <Parent>Life</Parent>
+      <Previous>Age</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5334755+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5334755+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5334755+01:00</LastModified>
+      <Notes>Smoker status - Y (smoker), N (non-smoker), U (unknown)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>N</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <AllowNulls>false</AllowNulls>
+    </Input>
+  </Inputs>
+  <Params>
+    <Parameter>
+      <Name>Basis</Name>
+      <Parent />
+      <Previous>Decrements</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5334755+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5334755+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5334755+01:00</LastModified>
+      <Notes>Basis parameters</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>CalcBasis_w</Name>
+      <Parent>Basis</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5334755+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5334755+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5334755+01:00</LastModified>
+      <Notes>Calculation Basis for model run - set in parent model</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>Reserve</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source>Parent</Source>
+    </Parameter>
+    <Parameter>
+      <Name>Decrements</Name>
+      <Parent />
+      <Previous>Policy</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5334755+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5334755+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5334755+01:00</LastModified>
+      <Notes>Parameters specific to model decrements</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>MaxTerm_w</Name>
+      <Parent>Policy</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5334755+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5334755+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5334755+01:00</LastModified>
+      <Notes>Maximum policy term (life dead after this point) - value set in model code</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>0</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>MortBasis_tbl</Name>
+      <Parent>Mortality</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5334755+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5334755+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5334755+01:00</LastModified>
+      <Notes>Table used to determine appropriate mortality basis dependent on risk factors specific to each life</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>TableStr</DataType>
+      <Value>TBL_MortBasis</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>MortSelect</Name>
+      <Parent>Mortality</Parent>
+      <Previous>MortTbl_Mult</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5344728+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5344728+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5344728+01:00</LastModified>
+      <Notes>Use Select mortality? (Y/N)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>Y</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source>MortBasis_tbl</Source>
+    </Parameter>
+    <Parameter>
+      <Name>MortTbl_Mult</Name>
+      <Parent>Mortality</Parent>
+      <Previous>MortTbl_Name</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5344728+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5344728+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5344728+01:00</LastModified>
+      <Notes>Mortality multiplier applicable to mortality table.  Note that this multiplier applies to all lives using the same mortality basis and is distinct from the life specific multiplier in the Inputs.</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>1</Value>
+      <Format>#,##0.00%</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source>MortBasis_tbl</Source>
+    </Parameter>
+    <Parameter>
+      <Name>MortTbl_Name</Name>
+      <Parent>Mortality</Parent>
+      <Previous>MortBasis_tbl</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5344728+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5344728+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5344728+01:00</LastModified>
+      <Notes>Name of mortality table to be used (looked up from mortality basis table)</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>String</DataType>
+      <Value>TBL_TMN00</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source>MortBasis_tbl</Source>
+    </Parameter>
+    <Parameter>
+      <Name>Mort_MaxAge_w</Name>
+      <Parent>Mortality</Parent>
+      <Previous>Mort_MaxCols_w</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5344728+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5344728+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5344728+01:00</LastModified>
+      <Notes>Maximum age for which mortality exists in mortality table</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>120</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>Mort_MaxCols_w</Name>
+      <Parent>Mortality</Parent>
+      <Previous>Mort_Tbl_w</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5344728+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5344728+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5344728+01:00</LastModified>
+      <Notes>Number of columns in mortality table, used to determine which column contains ultimate mortality rates</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>1</Value>
+      <Format>#0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>Mort_Tbl_w</Name>
+      <Parent>Mortality</Parent>
+      <Previous>MortSelect</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5344728+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5344728+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5344728+01:00</LastModified>
+      <Notes>Mortality table to be used</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>TableDbl</DataType>
+      <Value />
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadWrite</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>Mortality</Name>
+      <Parent>Decrements</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5344728+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5344728+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5344728+01:00</LastModified>
+      <Notes>Mortality parameters</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>Parent</Name>
+      <Parent />
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5354701+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5354701+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5354701+01:00</LastModified>
+      <Notes>This parameter required to allow this submodel to pull through values from the parent model</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Model</DataType>
+      <Value>Disc_CF_Model</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+    <Parameter>
+      <Name>Policy</Name>
+      <Parent />
+      <Previous>Parent</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5354701+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5354701+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5354701+01:00</LastModified>
+      <Notes>Parameters specific to policy</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Access>ReadOnly</Access>
+      <Source />
+    </Parameter>
+  </Params>
+  <Formulae>
+    <Formula>
+      <Name>AgeAdj_b</Name>
+      <Parent>Policy</Parent>
+      <Previous>AgeAdj_e</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5354701+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5354701+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5354701+01:00</LastModified>
+      <Notes>Age of life at the beginning of month t, adjusted for any mortality rating</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Age at beg of month = Age at commencement + (time since commencement-1) + any life specific age adjustment
+Return Age + ((t - 1) + MortAgeAdj) / 12</Value>
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>AgeAdj_e</Name>
+      <Parent>Policy</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5354701+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5354701+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5354701+01:00</LastModified>
+      <Notes>Age of life at the end of month t, adjusted for any mortality age rating</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Age at end of month = Age at commencement + time since commencement + any life specific age adjustment
+Return Age + (t + MortAgeAdj) / 12</Value>
+      <Format>##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Decrements</Name>
+      <Parent />
+      <Previous>Policy</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5354701+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5354701+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5354701+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>InitRecord</Name>
+      <Parent />
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5354701+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5354701+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5354701+01:00</LastModified>
+      <Notes>Set up any variables that only need calculated once for each policy</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType />
+      <Value>'Set Appropriate Mortality table
+Mort_Tbl_w = Project.TableDbl(MortTbl_Name)
+Mort_MaxCols_w = Mort_Tbl_w.Cols
+Mort_MaxAge_w = Mort_Tbl_w.UpperLimit
+
+'Set max term for Life (ie where life reaches max age in mortality table)
+MaxTerm_w = Mort_MaxAge_w * 12 - CInt(Fix(Age * 12) + MortAgeAdj)</Value>
+      <Format />
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>LifeAlive_b</Name>
+      <Parent>Mortality</Parent>
+      <Previous>MortRate</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5354701+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5354701+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5354701+01:00</LastModified>
+      <Notes>Proportion of policies where life is still alive at the start of the month</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Probability life 1 still alive at the start of month t, used in joint life last death calculations
+
+'Assume life 1 still alive and policy has not lapsed by the later of policy commencement and valuation date
+If t &lt;= Max(0, PeriodIF()) Then Return 1
+
+Return LifeAlive_b(t - 1) * (1 - MortRate(t - 1))</Value>
+      <Format>0.000000</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>MortRate</Name>
+      <Parent>Mortality</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5354701+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5354701+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5354701+01:00</LastModified>
+      <Notes>Probability of life dying during month t</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value>'Assume zero mortality until the later of valuation date and policy commencement date
+If t &lt;= Max(PeriodIF(), 0) Then Return 0
+
+'Determine which column to look up depending on whether select or ultimate rates are to be used
+Dim Col_lookup As Integer
+If MortSelect = "Y" Then
+    Col_lookup = Min(Mort_MaxCols_w, Pol_Year(t))
+Else
+    Col_lookup = Mort_MaxCols_w
+End If
+
+'Return 1 if reached maximum age in mortality table
+If AgeAdj_e(t) &gt;= Mort_MaxAge_w Then Return 1 'can't rely on 100% mortality being returned by table where multipliers &lt; 100%
+
+'Return monthly mortality rate, after allowing for any life specific and basis specific multipliers
+'Also need to ensure mortality rate is not &gt; 100% after applying multiplier
+Return 1 - (1 - Min(1, (MortMult * MortTbl_Mult) * Mort_Tbl_w.Value(CInt(Fix(AgeAdj_e(t - 1))), Col_lookup))) ^ (1 / 12)</Value>
+      <Format>0.000000</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>Mortality</Name>
+      <Parent>Decrements</Parent>
+      <Previous />
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5364674+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5364674+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5364674+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>PeriodIF</Name>
+      <Parent>Policy</Parent>
+      <Previous>AgeAdj_b</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5364674+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5364674+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5364674+01:00</LastModified>
+      <Notes>Complete months from policy commencement date to valuation date - read from parent model</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>'Number of complete months from policy commencement to valuation date
+Return Parent.PeriodIF</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Link />
+    </Formula>
+    <Formula>
+      <Name>Pol_Year</Name>
+      <Parent>Policy</Parent>
+      <Previous>PeriodIF</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5364674+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5364674+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5364674+01:00</LastModified>
+      <Notes>Policy year - read from parent model</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>'Policy year, ie first 12 months from policy commencement = Pol_Year 1, next 12 months = Pol_Year 2
+Return Parent.Pol_Year(t)</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Link />
+    </Formula>
+    <Formula>
+      <Name>Policy</Name>
+      <Parent />
+      <Previous>InitRecord</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5364674+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5364674+01:00</CreatedOn>
+      <Folder>true</Folder>
+      <LastModified>2023-07-13T14:47:21.5364674+01:00</LastModified>
+      <Notes />
+      <IsExpanded>true</IsExpanded>
+      <DataType>Double</DataType>
+      <Value />
+      <Format>#,##0.00</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+    </Formula>
+    <Formula>
+      <Name>ProjTerm</Name>
+      <Parent>Policy</Parent>
+      <Previous>Pol_Year</Previous>
+      <LastModifiedBy>ClareStone</LastModifiedBy>
+      <LastModifiedOn>2023-07-13T14:47:21.5364674+01:00</LastModifiedOn>
+      <CreatedBy>ClareStone</CreatedBy>
+      <CreatedOn>2023-07-13T14:47:21.5364674+01:00</CreatedOn>
+      <Folder>false</Folder>
+      <LastModified>2023-07-13T14:47:21.5364674+01:00</LastModified>
+      <Notes>Term of policy, from outset, in months - read from parent model</Notes>
+      <IsExpanded>true</IsExpanded>
+      <DataType>Integer</DataType>
+      <Value>'Policy term, in months, chosen at outset
+Return Parent.ProjTerm</Value>
+      <Format>#,##0</Format>
+      <Override>false</Override>
+      <IsPrivate>false</IsPrivate>
+      <Link />
+    </Formula>
+  </Formulae>
+  <Runs />
+</Model>

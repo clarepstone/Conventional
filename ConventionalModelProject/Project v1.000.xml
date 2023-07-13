@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>ConventionalModelProject</Name>
+  <LastModifiedBy>ClareStone</LastModifiedBy>
+  <LastModifiedOn xsi:nil="true" />
+  <CreatedOn xsi:nil="true" />
+  <Folder>false</Folder>
+  <LastModified>2023-07-13T14:49:40.1330465+01:00</LastModified>
+  <Notes />
+  <IsExpanded>true</IsExpanded>
+  <CreateDate>2023-07-05T11:30:13.034106+01:00</CreateDate>
+  <UserId>ClareStone</UserId>
+  <AppVersion>6000</AppVersion>
+  <VersionNo>1.000</VersionNo>
+  <CompanyName>Software Alliance Limited</CompanyName>
+  <Logo>C:\Users\ClareStone\Documents\Mo.net Projects\ConventionalModelProject\Logo\SAL Blue Logo.png</Logo>
+  <Documentation>C:\Users\ClareStone\Documents\Mo.net Projects\ConventionalModelProject\Documentation\Mo.net_Sample_Projects_Conventional_Model_v1.03_User_Guide_v3.pdf</Documentation>
+  <DocumentationBackedUp>true</DocumentationBackedUp>
+  <CommitDate>0001-01-01T00:00:00</CommitDate>
+  <References />
+  <ExternalSourceControl>true</ExternalSourceControl>
+  <DisableLastModified>true</DisableLastModified>
+  <RevisionIds>
+    <item>
+      <key>
+        <int>1</int>
+      </key>
+      <value>
+        <string>906f69d8-2181-4e55-be68-e9d862313dc3</string>
+      </value>
+    </item>
+  </RevisionIds>
+  <OpenAsReadOnly>false</OpenAsReadOnly>
+</Project>
