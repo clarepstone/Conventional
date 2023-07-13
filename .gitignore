@@ -1,0 +1,24 @@
+RunReports.xml
+RunErrors.xml
+CompileErrors.txt
+LockInfo.xml
+LockFile.txt
+ZipFilesXML.txt
+TempInputsTable.txt
+AutoRecover.xml
+AutoRecover - previous.xml
+ProjectWorkspace.xml
+*.monet
+*.orig
+*.zip
+*.mozip
+**/UserEdits/
+**/Results/
+**/Compile/
+**/IOFiles/Properties/
+**/IOFiles/Reports/*
+/UserEdits/
+/Results/
+/Compile/
+/IOFiles/Properties/
+/IOFiles/Reports/
