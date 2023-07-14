@@ -4,11 +4,11 @@
   <Parent>Top Models</Parent>
   <Previous />
   <LastModifiedBy>ClareStone</LastModifiedBy>
-  <LastModifiedOn>2023-07-13T14:49:40.1330465+01:00</LastModifiedOn>
+  <LastModifiedOn>2023-07-14T13:30:02.8664139+01:00</LastModifiedOn>
   <CreatedBy>ClareStone</CreatedBy>
   <CreatedOn>2023-07-13T14:47:21.5115344+01:00</CreatedOn>
   <Folder>false</Folder>
-  <LastModified>2023-07-13T14:49:40.1330465+01:00</LastModified>
+  <LastModified>2023-07-14T13:30:02.8664139+01:00</LastModified>
   <Notes>Calculates present value of all cashflows for conventional business</Notes>
   <IsExpanded>true</IsExpanded>
   <Description>Present Value Cashflow Model</Description>
@@ -192,15 +192,15 @@
       <Parent>Premium</Parent>
       <Previous />
       <LastModifiedBy>ClareStone</LastModifiedBy>
-      <LastModifiedOn>2023-07-13T14:47:21.5145272+01:00</LastModifiedOn>
+      <LastModifiedOn>2023-07-14T13:30:02.8664139+01:00</LastModifiedOn>
       <CreatedBy>ClareStone</CreatedBy>
       <CreatedOn>2023-07-13T14:47:21.5145272+01:00</CreatedOn>
       <Folder>false</Folder>
-      <LastModified>2023-07-13T14:47:21.5145272+01:00</LastModified>
+      <LastModified>2023-07-14T13:30:02.8664139+01:00</LastModified>
       <Notes>Annual premium amount.  For single premiums this is the single premium, for all other premium frequencies this is the annual premium.</Notes>
       <IsExpanded>true</IsExpanded>
       <DataType>Double</DataType>
-      <Value>500</Value>
+      <Value>505.00</Value>
       <Format>##,##0.00</Format>
       <Override>false</Override>
       <IsPrivate>false</IsPrivate>
