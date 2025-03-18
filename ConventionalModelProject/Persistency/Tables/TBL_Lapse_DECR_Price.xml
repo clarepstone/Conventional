@@ -4,11 +4,11 @@
   <Parent>Persistency Tables</Parent>
   <Previous>TBL_Lapse_0</Previous>
   <LastModifiedBy>ClareStone</LastModifiedBy>
-  <LastModifiedOn>2025-03-18T15:45:25.4661789+00:00</LastModifiedOn>
+  <LastModifiedOn>2025-03-18T15:50:30.4365759+00:00</LastModifiedOn>
   <CreatedBy>ClareStone</CreatedBy>
   <CreatedOn>2023-07-13T14:47:21.5554679+01:00</CreatedOn>
   <Folder>false</Folder>
-  <LastModified>2025-03-18T15:45:25.4661789+00:00</LastModified>
+  <LastModified>2025-03-18T15:50:30.4365759+00:00</LastModified>
   <Notes>Lapse table for term insurance policies with decreasing sum assured</Notes>
   <IsExpanded>true</IsExpanded>
   <IsProjectTable>true</IsProjectTable>
@@ -18,7 +18,7 @@
   <IsDatFileSource>false</IsDatFileSource>
   <IsDatabaseConnection>false</IsDatabaseConnection>
   <WebDataSourceIsAdvanced>false</WebDataSourceIsAdvanced>
-  <FilePath>Tables\00 NonCorrupt_TestPack_Conven.xlsx</FilePath>
+  <FilePath>Tables\01 NonCorrupt_TestPack_Conven.xlsx</FilePath>
   <Schema />
   <Reference>Lapse_DECR_Price</Reference>
   <Delimiter>	</Delimiter>
