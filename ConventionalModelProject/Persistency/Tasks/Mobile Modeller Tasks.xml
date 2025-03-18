@@ -2,13 +2,13 @@
 <DataConversion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Name>Mobile Modeller Tasks</Name>
   <Parent />
-  <Previous>Projection Tasks</Previous>
+  <Previous>R</Previous>
   <LastModifiedBy>ClareStone</LastModifiedBy>
-  <LastModifiedOn>2023-07-13T14:47:21.5364674+01:00</LastModifiedOn>
+  <LastModifiedOn>2025-03-18T16:05:52.6589943+00:00</LastModifiedOn>
   <CreatedBy>ClareStone</CreatedBy>
   <CreatedOn>2023-07-13T14:47:21.5364674+01:00</CreatedOn>
   <Folder>true</Folder>
-  <LastModified>2023-07-13T14:47:21.5364674+01:00</LastModified>
+  <LastModified>2025-03-18T16:05:52.6589943+00:00</LastModified>
   <Notes />
   <IsExpanded>true</IsExpanded>
   <Type>Indiv</Type>
@@ -18,6 +18,7 @@
   <ReThrowException>true</ReThrowException>
   <ExceptionWriteMax>20</ExceptionWriteMax>
   <ExceptionAbortMax>1000</ExceptionAbortMax>
+  <EnableDebugRecordId>false</EnableDebugRecordId>
   <TableSplitDelimiter>_</TableSplitDelimiter>
   <WorkerPCs>false</WorkerPCs>
   <MultiThreaded>false</MultiThreaded>
@@ -27,6 +28,7 @@
   <Threads>0</Threads>
   <SequentialStartUp>false</SequentialStartUp>
   <ProcessResultsOnMaster>true</ProcessResultsOnMaster>
+  <NumberOfWorkers>0</NumberOfWorkers>
   <StartUpDelay>0</StartUpDelay>
   <BackupAfterRun>false</BackupAfterRun>
   <IncludeResultsInBackup>false</IncludeResultsInBackup>
