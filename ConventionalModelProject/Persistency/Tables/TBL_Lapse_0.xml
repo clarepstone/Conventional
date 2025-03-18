@@ -4,19 +4,21 @@
   <Parent>Persistency Tables</Parent>
   <Previous />
   <LastModifiedBy>ClareStone</LastModifiedBy>
-  <LastModifiedOn>2023-07-13T14:47:21.5554679+01:00</LastModifiedOn>
+  <LastModifiedOn>2025-03-18T15:44:59.405199+00:00</LastModifiedOn>
   <CreatedBy>ClareStone</CreatedBy>
   <CreatedOn>2023-07-13T14:47:21.5554679+01:00</CreatedOn>
   <Folder>false</Folder>
-  <LastModified>2023-07-13T14:47:21.5554679+01:00</LastModified>
+  <LastModified>2025-03-18T15:44:59.405199+00:00</LastModified>
   <Notes>Lapse table appropriate for policies where no lapses are expected</Notes>
   <IsExpanded>true</IsExpanded>
   <IsProjectTable>true</IsProjectTable>
   <IsDataSource>false</IsDataSource>
   <IsODBCSource>false</IsODBCSource>
+  <IsWebDataSource>false</IsWebDataSource>
   <IsDatFileSource>false</IsDatFileSource>
   <IsDatabaseConnection>false</IsDatabaseConnection>
-  <FilePath>[Tables]</FilePath>
+  <WebDataSourceIsAdvanced>false</WebDataSourceIsAdvanced>
+  <FilePath>Excel</FilePath>
   <Schema />
   <Reference>Lapse_0</Reference>
   <Delimiter>	</Delimiter>
