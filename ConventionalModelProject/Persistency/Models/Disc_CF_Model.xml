@@ -4,11 +4,11 @@
   <Parent>Top Models</Parent>
   <Previous />
   <LastModifiedBy>ClareStone</LastModifiedBy>
-  <LastModifiedOn>2023-07-14T13:30:02.8664139+01:00</LastModifiedOn>
+  <LastModifiedOn>2025-03-18T15:54:16.6083708+00:00</LastModifiedOn>
   <CreatedBy>ClareStone</CreatedBy>
   <CreatedOn>2023-07-13T14:47:21.5115344+01:00</CreatedOn>
   <Folder>false</Folder>
-  <LastModified>2023-07-14T13:30:02.8664139+01:00</LastModified>
+  <LastModified>2025-03-18T15:54:16.6083708+00:00</LastModified>
   <Notes>Calculates present value of all cashflows for conventional business</Notes>
   <IsExpanded>true</IsExpanded>
   <Description>Present Value Cashflow Model</Description>
@@ -268,15 +268,15 @@
       <Parent>Policy</Parent>
       <Previous>UniqueID</Previous>
       <LastModifiedBy>ClareStone</LastModifiedBy>
-      <LastModifiedOn>2023-07-13T14:47:21.5155239+01:00</LastModifiedOn>
+      <LastModifiedOn>2025-03-18T15:54:16.6083708+00:00</LastModifiedOn>
       <CreatedBy>ClareStone</CreatedBy>
       <CreatedOn>2023-07-13T14:47:21.5155239+01:00</CreatedOn>
       <Folder>false</Folder>
-      <LastModified>2023-07-13T14:47:21.5155239+01:00</LastModified>
+      <LastModified>2025-03-18T15:54:16.6083708+00:00</LastModified>
       <Notes>Product Type: Term insurance (TERM), Whole of life assurance (WOL), Pure Endowment (PURE_ENDOW), Endowment (ENDOW)</Notes>
       <IsExpanded>true</IsExpanded>
       <DataType>String</DataType>
-      <Value>TERM</Value>
+      <Value>PURE_ENDOW</Value>
       <Format />
       <Override>false</Override>
       <IsPrivate>false</IsPrivate>
