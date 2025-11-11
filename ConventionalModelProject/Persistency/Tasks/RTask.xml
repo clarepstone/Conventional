@@ -4,12 +4,13 @@
   <Parent>R</Parent>
   <Previous />
   <LastModifiedBy>ClareStone</LastModifiedBy>
-  <LastModifiedOn>2025-03-18T16:05:56.3276579+00:00</LastModifiedOn>
+  <LastModifiedOn>2025-11-11T12:06:22.0707369+00:00</LastModifiedOn>
   <CreatedBy>ClareStone</CreatedBy>
   <CreatedOn>2025-03-18T16:03:45.4041755+00:00</CreatedOn>
   <Folder>false</Folder>
-  <LastModified>2025-03-18T16:05:56.3276579+00:00</LastModified>
+  <LastModified>2025-11-11T12:06:22.0707369+00:00</LastModified>
   <Notes />
+  <OpeningInformation />
   <IsExpanded>true</IsExpanded>
   <Type>Indiv</Type>
   <UseDefaultFolder>true</UseDefaultFolder>
@@ -33,6 +34,7 @@
   <BackupAfterRun>false</BackupAfterRun>
   <IncludeResultsInBackup>false</IncludeResultsInBackup>
   <RevisionIds />
+  <MaxRunDuration>0</MaxRunDuration>
   <InputOverrides>false</InputOverrides>
   <ParameterOverrides>false</ParameterOverrides>
   <ReadFromFileIfAvailable>false</ReadFromFileIfAvailable>
@@ -57,5 +59,5 @@
   <Threshold>0</Threshold>
   <ThreshholdType>None</ThreshholdType>
   <IsDataConversion>false</IsDataConversion>
-  <Script>C:\Users\ClareStone\Documents\Mo.net Projects\ExperienceMonitoring\R_Scripts\concatenate_SmokerSex.r</Script>
+  <Script>\R\concatenate_SmokerSex.r</Script>
 </RScriptTask>
