@@ -1,0 +1,2 @@
+UniqueID	Product	StartDate	Term	LifeBasis	PUPDate	PremAnn	PremFreq	PremTerm	BenType	DthBen	MatValue	Age	Smoker	Sex	MortAgeAdj	MortMult
+ABC12345	PURE_ENDOW	01/01/1900	20	S	01/01/1900	505.00	0	0	LEVEL	100000	0	35	N	M	0	1

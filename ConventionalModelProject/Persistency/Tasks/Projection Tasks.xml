@@ -4,12 +4,13 @@
   <Parent />
   <Previous />
   <LastModifiedBy>ClareStone</LastModifiedBy>
-  <LastModifiedOn>2025-03-18T16:05:52.6599941+00:00</LastModifiedOn>
+  <LastModifiedOn>2026-02-09T11:17:47.2396586+00:00</LastModifiedOn>
   <CreatedBy>ClareStone</CreatedBy>
   <CreatedOn>2023-07-13T14:47:21.5440073+01:00</CreatedOn>
   <Folder>true</Folder>
-  <LastModified>2025-03-18T16:05:52.6599941+00:00</LastModified>
+  <LastModified>2026-02-09T11:17:47.2396586+00:00</LastModified>
   <Notes />
+  <OpeningInformation />
   <IsExpanded>true</IsExpanded>
   <Type>Indiv</Type>
   <UseDefaultFolder>true</UseDefaultFolder>
@@ -33,6 +34,7 @@
   <BackupAfterRun>false</BackupAfterRun>
   <IncludeResultsInBackup>false</IncludeResultsInBackup>
   <RevisionIds />
+  <MaxRunDuration>0</MaxRunDuration>
   <InputOverrides>false</InputOverrides>
   <ParameterOverrides>false</ParameterOverrides>
   <ReadFromFileIfAvailable>false</ReadFromFileIfAvailable>

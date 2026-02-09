@@ -8,6 +8,7 @@ TempInputsTable.txt
 AutoRecover.xml
 AutoRecover - previous.xml
 ProjectWorkspace.xml
+Projectv1.000.xml
 *.monet
 *.orig
 *.zip

@@ -2,15 +2,16 @@
 <DataConversion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Name>PricingTask_BenLed</Name>
   <Parent>Projection Tasks</Parent>
-  <Previous>ReserveTask_YE16v1</Previous>
+  <Previous>PricingTask_BenLed_F</Previous>
   <LastModifiedBy>ClareStone</LastModifiedBy>
-  <LastModifiedOn>2023-07-13T14:47:21.5430102+01:00</LastModifiedOn>
+  <LastModifiedOn>2026-02-09T11:17:47.0355432+00:00</LastModifiedOn>
   <CreatedBy>ClareStone</CreatedBy>
   <CreatedOn>2023-07-13T14:47:21.5430102+01:00</CreatedOn>
   <Key>TermTask_YE16v11</Key>
   <Folder>false</Folder>
-  <LastModified>2023-07-13T14:47:21.5430102+01:00</LastModified>
+  <LastModified>2026-02-09T11:17:47.0355432+00:00</LastModified>
   <Notes />
+  <OpeningInformation />
   <IsExpanded>true</IsExpanded>
   <Type>Indiv</Type>
   <UseDefaultFolder>true</UseDefaultFolder>
@@ -19,6 +20,7 @@
   <ReThrowException>true</ReThrowException>
   <ExceptionWriteMax>20</ExceptionWriteMax>
   <ExceptionAbortMax>1000</ExceptionAbortMax>
+  <EnableDebugRecordId>false</EnableDebugRecordId>
   <TableSplitDelimiter>_</TableSplitDelimiter>
   <WorkerPCs>false</WorkerPCs>
   <MultiThreaded>false</MultiThreaded>
@@ -28,10 +30,12 @@
   <Threads>0</Threads>
   <SequentialStartUp>false</SequentialStartUp>
   <ProcessResultsOnMaster>true</ProcessResultsOnMaster>
+  <NumberOfWorkers>0</NumberOfWorkers>
   <StartUpDelay>0</StartUpDelay>
   <BackupAfterRun>false</BackupAfterRun>
   <IncludeResultsInBackup>false</IncludeResultsInBackup>
   <RevisionIds />
+  <MaxRunDuration>0</MaxRunDuration>
   <Code>ExecuteRecords(OutputResults)
 If OutputResults Then ReferencedProjections.WriteResults()</Code>
   <ModelName>Disc_CF_Model</ModelName>
@@ -47,12 +51,15 @@ If OutputResults Then ReferencedProjections.WriteResults()</Code>
     <Folder>false</Folder>
     <LastModified>2023-07-13T14:47:21.5394607+01:00</LastModified>
     <Notes />
+    <OpeningInformation />
     <IsExpanded>true</IsExpanded>
     <IsProjectTable>false</IsProjectTable>
     <IsDataSource>false</IsDataSource>
     <IsODBCSource>false</IsODBCSource>
+    <IsWebDataSource>false</IsWebDataSource>
     <IsDatFileSource>false</IsDatFileSource>
     <IsDatabaseConnection>false</IsDatabaseConnection>
+    <WebDataSourceIsAdvanced>false</WebDataSourceIsAdvanced>
     <FilePath>[Inputs]</FilePath>
     <Schema />
     <Reference>Inputs_BenLed_NonCorrupt</Reference>

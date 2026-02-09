@@ -1,14 +1,15 @@
 <?xml version="1.0"?>
 <DataConversion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Name>R</Name>
-  <Parent />
-  <Previous>Projection Tasks</Previous>
+  <Name>PricingTask_BenLed_F</Name>
+  <Parent>Projection Tasks</Parent>
+  <Previous>ReserveTask_YE16v1</Previous>
   <LastModifiedBy>ClareStone</LastModifiedBy>
-  <LastModifiedOn>2026-02-09T11:17:47.2396586+00:00</LastModifiedOn>
+  <LastModifiedOn>2026-02-09T11:28:55.442591+00:00</LastModifiedOn>
   <CreatedBy>ClareStone</CreatedBy>
-  <CreatedOn>2025-03-18T16:05:49.5497312+00:00</CreatedOn>
-  <Folder>true</Folder>
-  <LastModified>2026-02-09T11:17:47.2396586+00:00</LastModified>
+  <CreatedOn>2026-02-09T11:17:14.6308831+00:00</CreatedOn>
+  <Key>PricingTask_BenLed_F</Key>
+  <Folder>false</Folder>
+  <LastModified>2026-02-09T11:28:55.442591+00:00</LastModified>
   <Notes />
   <OpeningInformation />
   <IsExpanded>true</IsExpanded>
@@ -35,9 +36,57 @@
   <IncludeResultsInBackup>false</IncludeResultsInBackup>
   <RevisionIds />
   <MaxRunDuration>0</MaxRunDuration>
-  <InputOverrides>false</InputOverrides>
+  <Code>Overrides Sub InitialiseRun()
+    DefineRecordFilter("LifeBasis", Function(var) var = "S")
+End Sub
+
+Overrides Sub RunCode(Optional OutputResults As Boolean = True)
+    GenCore.WriteProjectionResults.DefaultDelimiter = Chr(9)
+    ExecuteRecords(OutputResults)
+    If OutputResults Then ReferencedProjections.WriteResults()
+End Sub
+</Code>
+  <ModelName>Disc_CF_Model</ModelName>
+  <Basis />
+  <InputsTable>
+    <Name>PricingTask_BenLed_F_Inputs</Name>
+    <Parent />
+    <Previous />
+    <LastModifiedBy>ClareStone</LastModifiedBy>
+    <LastModifiedOn>2026-02-09T11:17:47.0597418+00:00</LastModifiedOn>
+    <CreatedBy>ClareStone</CreatedBy>
+    <CreatedOn>2026-02-09T11:17:14.6471501+00:00</CreatedOn>
+    <Folder>false</Folder>
+    <LastModified>2026-02-09T11:17:47.0597418+00:00</LastModified>
+    <Notes />
+    <OpeningInformation />
+    <IsExpanded>true</IsExpanded>
+    <IsProjectTable>false</IsProjectTable>
+    <IsDataSource>false</IsDataSource>
+    <IsODBCSource>false</IsODBCSource>
+    <IsWebDataSource>false</IsWebDataSource>
+    <IsDatFileSource>false</IsDatFileSource>
+    <IsDatabaseConnection>false</IsDatabaseConnection>
+    <WebDataSourceIsAdvanced>false</WebDataSourceIsAdvanced>
+    <FilePath>Tables\PricingTask_BenLed_F_Inputs.txt</FilePath>
+    <Schema />
+    <Reference />
+    <Delimiter>	</Delimiter>
+    <Internal>true</Internal>
+    <LookUpType>RowAndCol</LookUpType>
+    <BasisTable>false</BasisTable>
+    <IndexCols>1</IndexCols>
+    <DoubleType>true</DoubleType>
+    <Rows>2</Rows>
+    <Cols>18</Cols>
+    <HasHeadings>true</HasHeadings>
+    <RunControlTable>false</RunControlTable>
+  </InputsTable>
+  <CopyProperties />
+  <InputOverrides>true</InputOverrides>
   <ParameterOverrides>false</ParameterOverrides>
   <ReadFromFileIfAvailable>false</ReadFromFileIfAvailable>
+  <ProjectionInputs />
   <Dynamic>false</Dynamic>
   <UseDynamicAttributes>false</UseDynamicAttributes>
   <ColumnOutputTotals>true</ColumnOutputTotals>
@@ -48,7 +97,9 @@
   <ColumnSumEnd>24</ColumnSumEnd>
   <PerRecordResults>false</PerRecordResults>
   <SuppressRecordIndices>false</SuppressRecordIndices>
+  <CustomRecordOutput />
   <Delimiter>Tab</Delimiter>
+  <Targets />
   <MaxTerm>1200</MaxTerm>
   <CircularReferenceCheck>false</CircularReferenceCheck>
   <ResetParamDefaults>false</ResetParamDefaults>
